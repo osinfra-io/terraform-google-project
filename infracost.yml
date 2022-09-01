@@ -1,0 +1,5 @@
+version: 0.1
+
+projects:
+  - name: "Google Project Module - Default"
+    path: test/fixtures/default_project
