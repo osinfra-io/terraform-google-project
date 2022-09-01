@@ -1,0 +1,27 @@
+driver:
+  name: terraform
+  variables:
+    billing_id: <%= ENV['BILLING_ID'] %>
+
+provisioner:
+  name: terraform
+
+verifier:
+  name: terraform
+
+platforms:
+  - name: gcp
+
+suites:
+  - name: default_project
+    driver:
+      root_module_directory: test/fixtures/default_project
+    verifier:
+      color: true
+      systems:
+        - name: inspec_gcp
+          backend: gcp
+          controls:
+            - compute_project_info
+            - logging_sync
+            - project_audit_config

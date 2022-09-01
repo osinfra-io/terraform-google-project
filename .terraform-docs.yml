@@ -1,0 +1,14 @@
+formatter: markdown table
+sections:
+  hide-all: true
+  show:
+    - providers
+    - inputs
+    - outputs
+    - resources
+sort:
+  enabled: true
+  by: required
+settings:
+  escape: false
+  indent: 3

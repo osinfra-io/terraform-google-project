@@ -1,0 +1,56 @@
+name: Kitchen Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  default-project:
+    name: Default Project
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    env:
+      BILLING_ID: ${{ secrets.BILLING_ID }}
+
+
+    steps:
+      # GitHub - Checkout
+      # https://github.com/marketplace/actions/checkout
+
+      - name: GitHub Checkout
+        uses: actions/checkout@v3
+
+      # Google Cloud Platform - Setup gcloud environment
+      # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
+
+      - name: Google Cloud Platform CLI Setup
+        uses: google-github-actions/setup-gcloud@v0.6.0
+        with:
+          service_account_key: ${{ secrets.GCP_MODULE_DEV_SA_KEY }}
+          export_default_credentials: true
+
+      # Kitchen Terraform
+      # https://github.com/marketplace/actions/kitchen-terraform
+
+      - name: Run Kitchen Converge
+        uses: osinfra-io/github-kitchen-terraform-action@v2.0.8
+        with:
+          kitchen-command: converge
+
+      - name: Run Kitchen Verify
+        uses: osinfra-io/github-kitchen-terraform-action@v2.0.8
+        with:
+          kitchen-command: verify
+
+      - name: Run Kitchen Destroy
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: osinfra-io/github-kitchen-terraform-action@v2.0.8
+        with:
+          kitchen-command: destroy
