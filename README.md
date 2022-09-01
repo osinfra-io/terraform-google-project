@@ -18,12 +18,18 @@ Here is an example of a basic configuration:
 module "project" {
   source  = "git@github.com:osinfra-io/terraform-google-project.git?ref=v0.0.0"
 
-  cost_center       = "x123"
-  folder_id         = "1111111111111"
-  prefix            = "test"
-  system            = "tools"
-  env               = "sb"
-  billing_id        = var.billing_id
+  billing_id                      = "555-555-555-555"
+  cis_2_2_logging_sink_project_id = "example-logging-project"
+  cost_center                     = "x000"
+  env                             = "sb"
+  folder_id                       = "1111111111111"
+
+  labels = {
+    key = "value",
+  }
+
+  prefix = "example-team"
+  system = "example"
 }
 ```
 
@@ -66,13 +72,11 @@ A child module automatically inherits its parent's default (un-aliased) provider
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_id"></a> [billing_id](#input_billing_id) | Billing ID for the project to use | `string` | n/a | yes |
-| <a name="input_cost_center"></a> [cost_center](#input_cost_center) | Cost center to label the project | `string` | n/a | yes |
+| <a name="input_cost_center"></a> [cost_center](#input_cost_center) | Cost center to label the project with | `string` | n/a | yes |
 | <a name="input_folder_id"></a> [folder_id](#input_folder_id) | Folder ID for the project to be created in | `string` | n/a | yes |
 | <a name="input_system"></a> [system](#input_system) | This should be a short name representing the system or part of the system you're building in the project for example: tools (for a set of tooling resources) | `string` | n/a | yes |
-| <a name="input_cis_2_2_logging_sink_project_id"></a> [cis_2_2_logging_sink_project_id](#input_cis_2_2_logging_sink_project_id) | The CIS 2.2 logging benchmark project ID | `string` | `""` | no |
-| <a name="input_cis_2_2_logging_sink_storage_bucket"></a> [cis_2_2_logging_sink_storage_bucket](#input_cis_2_2_logging_sink_storage_bucket) | The CIS 2.2 logging storage bucket | `string` | `""` | no |
-| <a name="input_env"></a> [env](#input_env) | This is the environment suffix for example: sb (Sandbox), acc (Acceptance), exp (Exploratory), uat (User Acceptance Testing), prod (Production) | `string` | `"sb"` | no |
-| <a name="input_force_destroy"></a> [force_destroy](#input_force_destroy) | When deleting a bucket, this boolean option will delete all contained objects | `bool` | `false` | no |
+| <a name="input_cis_2_2_logging_sink_project_id"></a> [cis_2_2_logging_sink_project_id](#input_cis_2_2_logging_sink_project_id) | The CIS 2.2 logging sink benchmark project ID | `string` | `""` | no |
+| <a name="input_env"></a> [env](#input_env) | This is the environment suffix for example: sb (Sandbox), nonprod (Non-Production), prod (Production) | `string` | `"sb"` | no |
 | <a name="input_labels"></a> [labels](#input_labels) | A map of labels to add to all resources | `map(string)` | `{}` | no |
 | <a name="input_prefix"></a> [prefix](#input_prefix) | This is your team prefix for example: ops (operations) | `string` | `"test"` | no |
 | <a name="input_random_project_id"></a> [random_project_id](#input_random_project_id) | Adds a random hex value with a prefix of tf to the `project_id` | `bool` | `true` | no |

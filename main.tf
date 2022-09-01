@@ -51,8 +51,6 @@ resource "google_project" "this" {
   auto_create_network = false
   billing_account     = var.billing_id
   folder_id           = "folders/${var.folder_id}"
-  name                = local.project_id
-  project_id          = local.project_id
 
   labels = merge(
     {
@@ -60,6 +58,9 @@ resource "google_project" "this" {
     },
     var.labels,
   )
+
+  name       = local.project_id
+  project_id = local.project_id
 }
 
 # IAM Audit Config Resource
@@ -72,14 +73,17 @@ resource "google_project_iam_audit_config" "cis_2_1" {
   project = google_project.this.project_id
   service = "allServices"
 
-  audit_log_config {
-    log_type = "ADMIN_READ"
-  }
-  audit_log_config {
-    log_type = "DATA_READ"
-  }
-  audit_log_config {
-    log_type = "DATA_WRITE"
+  dynamic "audit_log_config" {
+    for_each = toset(
+      [
+        "ADMIN_READ",
+        "DATA_READ",
+        "DATA_WRITE"
+      ]
+    )
+    content {
+      log_type = audit_log_config.key
+    }
   }
 }
 

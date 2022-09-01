@@ -8,32 +8,20 @@ variable "billing_id" {
 }
 
 variable "cis_2_2_logging_sink_project_id" {
-  description = "The CIS 2.2 logging benchmark project ID"
-  type        = string
-  default     = ""
-}
-
-variable "cis_2_2_logging_sink_storage_bucket" {
-  description = "The CIS 2.2 logging storage bucket"
+  description = "The CIS 2.2 logging sink benchmark project ID"
   type        = string
   default     = ""
 }
 
 variable "cost_center" {
-  description = "Cost center to label the project"
+  description = "Cost center to label the project with"
   type        = string
 }
 
 variable "env" {
-  description = "This is the environment suffix for example: sb (Sandbox), acc (Acceptance), exp (Exploratory), uat (User Acceptance Testing), prod (Production)"
+  description = "This is the environment suffix for example: sb (Sandbox), nonprod (Non-Production), prod (Production)"
   type        = string
   default     = "sb"
-}
-
-variable "force_destroy" {
-  description = "When deleting a bucket, this boolean option will delete all contained objects"
-  type        = bool
-  default     = false
 }
 
 variable "folder_id" {

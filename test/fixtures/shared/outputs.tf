@@ -1,6 +1,7 @@
 output "default_project_id" {
   value = module.default_project.project_id
 }
+
 output "default_project_number" {
   value = module.default_project.project_number
 }

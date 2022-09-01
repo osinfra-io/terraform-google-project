@@ -30,6 +30,9 @@ plan.out
 # Ignore Kitchen directories and files
 .kitchen
 
+# Ignore Infracost directories and files
+.infracost
+
 # Other Files
 *.log
 *.bak
