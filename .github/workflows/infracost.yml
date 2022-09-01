@@ -23,8 +23,9 @@ jobs:
         run: |
           ssh-agent -a $SSH_AUTH_SOCK
           mkdir -p ~/.ssh
-          echo "${{ secrets.IDEXX_RO_SSH_PRIV_KEY }}" | tr -d '\r' | ssh-add -
+          echo "${{ secrets.SSH_PRIV_KEY }}" | tr -d '\r' | ssh-add -
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+
       # Infracost Actions
       # https://github.com/marketplace/actions/infracost-actions
 

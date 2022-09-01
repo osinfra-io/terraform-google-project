@@ -1,0 +1,28 @@
+name: Add To GitHub Projects
+
+on:
+  issues:
+    types:
+      - opened
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    permissions:
+      issues: write
+      pull-requests: write
+
+    name: "Add To DevOps: Infrastructure as Code (IaC) GitHub Project"
+    runs-on: ubuntu-latest
+
+    steps:
+      # Add To GitHub Projects Beta
+      # https://github.com/marketplace/actions/add-to-github-projects
+
+      - name: Add To GitHub IaC Project
+        uses: actions/add-to-project@v0.3.0
+        with:
+          project-url: https://github.com/orgs/osinfra-io/projects/1
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
