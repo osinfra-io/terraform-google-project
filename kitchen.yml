@@ -25,3 +25,14 @@ suites:
             - compute_project_info
             - logging_sync
             - project_audit_config
+
+  - name: logging_project
+    driver:
+      root_module_directory: test/fixtures/logging_project
+    verifier:
+      color: true
+      systems:
+        - name: inspec_gcp
+          backend: gcp
+          controls:
+            - logging_sync

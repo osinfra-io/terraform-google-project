@@ -1,36 +1,24 @@
-# This module block creates a project for logging purposes.
+module "test" {
 
-module "logging_project" {
+  # This module will be consumed using the source address of the github repo and not the "../../../" used in this test.
+  # source = "git@github.com:osinfra-io/terraform-google-project?ref=v0.0.0"
+
   source = "../../../"
 
   billing_id  = var.billing_id
-  cost_center = var.cost_center
-  env         = var.env
-  folder_id   = var.folder_id
+  cost_center = "x000"
+
+  # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
+  # resource will not be created.
+
+  cis_2_2_logging_sink_project_id = "devops-testing-tf67de-sb" # This project has been created for tests.
+  env                             = "temp"
+  folder_id                       = "927951427023"
 
   labels = {
     key = "value",
   }
 
-  prefix = var.prefix
-  system = "logging"
-}
-
-# This module block creates a project that uses the above logging project.
-
-module "default_project" {
-  source = "../../../"
-
-  billing_id                      = var.billing_id
-  cis_2_2_logging_sink_project_id = module.logging_project.project_id
-  cost_center                     = var.cost_center
-  env                             = var.env
-  folder_id                       = var.folder_id
-
-  labels = {
-    key = "value",
-  }
-
-  prefix = var.prefix
+  prefix = "devops"
   system = "default"
 }

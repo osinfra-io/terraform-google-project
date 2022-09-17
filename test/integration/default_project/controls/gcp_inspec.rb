@@ -1,6 +1,9 @@
-cis_2_2_location = input('cis_2_2_location')
+# Chef InSpec
+# https://www.chef.io/inspec
+
+# Since this is the default test, we want to test as much as possible here and not be redundant in the other tests.
+
 project_id = input('project_id')
-project_number = input('project_number')
 
 control 'compute_project_info' do
   title 'Compute Project Info'
@@ -19,8 +22,10 @@ control 'logging_sync' do
   # Logging Project Sink Resource
   # https://docs.chef.io/inspec/resources/google_logging_project_sink
 
-  describe google_logging_project_sink(project: project_id, name: 'cis-gcp-2.1-logging-sink') do
+  describe google_logging_project_sink(project: project_id, name: 'cis-2-2-logging-sink') do
     it { should exist }
+    destination = 'logging.googleapis.com/projects/devops-testing-tf67de-sb'
+    its('destination') { should eq "#{destination}/locations/global/buckets/cis-2-2-logging-sink" }
   end
 end
 
