@@ -22,7 +22,7 @@ Here is an example of a basic configuration:
 
 ```hcl
 module "project" {
-  source  = "git@github.com:osinfra-io/terraform-google-project.git?ref=v0.0.0"
+  source  = "git@github.com:osinfra-io/terraform-google-project?ref=v0.0.0"
 
   billing_id                      = "555-555-555-555"
   cis_2_2_logging_sink_project_id = "example-logging-project"
