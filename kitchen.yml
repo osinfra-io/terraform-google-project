@@ -1,3 +1,6 @@
+# Test Kitchen - kitchen.yml
+# https://docs.chef.io/workstation/config_yml_kitchen
+
 driver:
   name: terraform
   variables:

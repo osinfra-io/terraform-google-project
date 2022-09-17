@@ -36,7 +36,7 @@ jobs:
           export_default_credentials: true
 
       # Kitchen Terraform
-      # https://github.com/marketplace/actions/kitchen-terraform
+      # https://github.com/marketplace/actions/kitchen-terraform-github-action
 
       - name: Run Kitchen Converge
         uses: osinfra-io/github-kitchen-terraform-action@v1.0.1
