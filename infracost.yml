@@ -1,5 +1,10 @@
+# Infracost Config File
+# https://www.infracost.io/docs/features/config_file
+
 version: 0.1
 
 projects:
-  - name: "Google Project Module - Default"
+  - name: "Google Project Module - Default Project"
     path: test/fixtures/default_project
+  - name: "Google Project Module - Logging Project"
+    path: test/fixtures/logging_project
