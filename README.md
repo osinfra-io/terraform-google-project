@@ -1,9 +1,11 @@
 # Google Cloud Platform - Terraform Project Module
 
 **[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
+
 ![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/workflows/Kitchen%20Tests/badge.svg)
 
 **[Bridgecrew](https://bridgecrew.io/):**
+
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/cis_gcp)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=CIS+GCP+V1.1)
 
 Terraform example module for a Google Cloud Platform project.
