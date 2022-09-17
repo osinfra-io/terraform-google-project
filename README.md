@@ -1,5 +1,9 @@
-# Google Cloud Platform - Terraform Project Module ![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/workflows/Kitchen%20Tests/badge.svg)
+# Google Cloud Platform - Terraform Project Module
 
+**[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
+![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/workflows/Kitchen%20Tests/badge.svg)
+
+**[Bridgecrew](https://bridgecrew.io/):**
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/cis_gcp)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=CIS+GCP+V1.1)
 
 Terraform example module for a Google Cloud Platform project.
@@ -53,8 +57,8 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.34.0 |
-| <a name="provider_random"></a> [random](#provider_random) | 3.4.1 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.36.0 |
+| <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
 
 ### Resources
 
