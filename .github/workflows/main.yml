@@ -6,10 +6,10 @@ on:
     branches:
       - main
     paths-ignore:
-      - '**.md'
+      - "**.md"
   pull_request:
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
 jobs:
   default-project:
@@ -18,7 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BILLING_ID: ${{ secrets.BILLING_ID }}
-
 
     steps:
       # GitHub - Checkout
@@ -40,17 +39,17 @@ jobs:
       # https://github.com/marketplace/actions/kitchen-terraform
 
       - name: Run Kitchen Converge
-        uses: osinfra-io/github-kitchen-terraform-action@v2.0.8
+        uses: osinfra-io/github-kitchen-terraform-action@v1.0.1
         with:
           kitchen-command: converge
 
       - name: Run Kitchen Verify
-        uses: osinfra-io/github-kitchen-terraform-action@v2.0.8
+        uses: osinfra-io/github-kitchen-terraform-action@v1.0.1
         with:
           kitchen-command: verify
 
       - name: Run Kitchen Destroy
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: osinfra-io/github-kitchen-terraform-action@v2.0.8
+        uses: osinfra-io/github-kitchen-terraform-action@v1.0.1
         with:
           kitchen-command: destroy
