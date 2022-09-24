@@ -1,3 +1,6 @@
+# Chef InSpec
+# https://www.chef.io/inspec
+
 project_id = input('project_id')
 
 control 'logging_sync' do

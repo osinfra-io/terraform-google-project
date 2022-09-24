@@ -5,10 +5,10 @@ module "test" {
 
   source = "../../../"
 
-  billing_id  = var.billing_id
-  cost_center = "x000"
-  env         = "temp"
-  folder_id   = "927951427023"
+  billing_account = var.billing_account
+  cost_center     = "x000"
+  env             = "temp"
+  folder_id       = "927951427023"
 
   labels = {
     key = "value",

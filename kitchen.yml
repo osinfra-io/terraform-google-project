@@ -1,10 +1,10 @@
-# Test Kitchen - kitchen.yml
+# Test Kitchen
 # https://docs.chef.io/workstation/config_yml_kitchen
 
 driver:
   name: terraform
   variables:
-    billing_id: <%= ENV['BILLING_ID'] %>
+    billing_account: <%= ENV['BILLING_ACCOUNT'] %>
 
 provisioner:
   name: terraform

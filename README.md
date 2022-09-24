@@ -59,8 +59,8 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.36.0 |
-| <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.34.0 |
+| <a name="provider_random"></a> [random](#provider_random) | 3.4.1 |
 
 ### Resources
 
@@ -77,15 +77,15 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_id"></a> [billing_id](#input_billing_id) | Billing ID for the project to use | `string` | n/a | yes |
-| <a name="input_cost_center"></a> [cost_center](#input_cost_center) | Cost center to label the project with | `string` | n/a | yes |
-| <a name="input_folder_id"></a> [folder_id](#input_folder_id) | Folder ID for the project to be created in | `string` | n/a | yes |
-| <a name="input_system"></a> [system](#input_system) | This should be a short name representing the system or part of the system you're building in the project for example: tools (for a set of tooling resources) | `string` | n/a | yes |
+| <a name="input_billing_account"></a> [billing_account](#input_billing_account) | The alphanumeric ID of the billing account this project belongs to | `string` | n/a | yes |
+| <a name="input_cost_center"></a> [cost_center](#input_cost_center) | The cost center to label the project with | `string` | n/a | yes |
+| <a name="input_folder_id"></a> [folder_id](#input_folder_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| <a name="input_system"></a> [system](#input_system) | The short name representing the system or part of the system you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
 | <a name="input_cis_2_2_logging_sink_project_id"></a> [cis_2_2_logging_sink_project_id](#input_cis_2_2_logging_sink_project_id) | The CIS 2.2 logging sink benchmark project ID | `string` | `""` | no |
-| <a name="input_env"></a> [env](#input_env) | This is the environment suffix for example: sb (Sandbox), nonprod (Non-Production), prod (Production) | `string` | `"sb"` | no |
-| <a name="input_labels"></a> [labels](#input_labels) | A map of labels to add to all resources | `map(string)` | `{}` | no |
-| <a name="input_prefix"></a> [prefix](#input_prefix) | This is your team prefix for example: ops (operations) | `string` | `"test"` | no |
-| <a name="input_random_project_id"></a> [random_project_id](#input_random_project_id) | Adds a random hex value with a prefix of tf to the `project_id` | `bool` | `true` | no |
+| <a name="input_env"></a> [env](#input_env) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| <a name="input_labels"></a> [labels](#input_labels) | A set of key/value label pairs to assign to the project | `map(string)` | `{}` | no |
+| <a name="input_prefix"></a> [prefix](#input_prefix) | The team prefix for example: `ops` (Operations), `devops` (DevOps), `sec` (Security) | `string` | `"test"` | no |
+| <a name="input_random_project_id"></a> [random_project_id](#input_random_project_id) | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
 
 ### Outputs
 
