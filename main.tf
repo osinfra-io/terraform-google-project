@@ -49,7 +49,7 @@ resource "google_project" "this" {
   # The default network has a pre-configured network configuration that is not suitable for production use.
 
   auto_create_network = false
-  billing_account     = var.billing_id
+  billing_account     = var.billing_account
   folder_id           = "folders/${var.folder_id}"
 
   labels = merge(

@@ -1,3 +1,6 @@
+# .gitignore
+# https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
 # Local .terraform directories
 **/.terraform/*
 

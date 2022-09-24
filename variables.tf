@@ -1,8 +1,8 @@
 # Input Variables
 # https://www.terraform.io/language/values/variables
 
-variable "billing_id" {
-  description = "Billing ID for the project to use"
+variable "billing_account" {
+  description = "The alphanumeric ID of the billing account this project belongs to"
   type        = string
   sensitive   = true
 }
@@ -14,40 +14,40 @@ variable "cis_2_2_logging_sink_project_id" {
 }
 
 variable "cost_center" {
-  description = "Cost center to label the project with"
+  description = "The cost center to label the project with"
   type        = string
 }
 
 variable "env" {
-  description = "This is the environment suffix for example: sb (Sandbox), nonprod (Non-Production), prod (Production)"
+  description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
   default     = "sb"
 }
 
 variable "folder_id" {
-  description = "Folder ID for the project to be created in"
+  description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
 }
 
 variable "prefix" {
-  description = "This is your team prefix for example: ops (operations)"
+  description = "The team prefix for example: `ops` (Operations), `devops` (DevOps), `sec` (Security)"
   type        = string
   default     = "test"
 }
 
 variable "random_project_id" {
-  description = "Adds a random hex value with a prefix of tf to the `project_id`"
+  description = "If true, a random hex value with a prefix of tf will be added to the `project_id`"
   type        = bool
   default     = true
 }
 
 variable "system" {
-  description = "This should be a short name representing the system or part of the system you're building in the project for example: tools (for a set of tooling resources)"
+  description = "The short name representing the system or part of the system you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project)"
   type        = string
 }
 
 variable "labels" {
-  description = "A map of labels to add to all resources"
+  description = "A set of key/value label pairs to assign to the project"
   type        = map(string)
   default     = {}
 }

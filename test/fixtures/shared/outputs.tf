@@ -1,3 +1,6 @@
+# Output Values
+# https://www.terraform.io/language/values/outputs
+
 output "project_id" {
   value = module.test.project_id
 }
