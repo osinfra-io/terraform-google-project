@@ -28,6 +28,7 @@ suites:
             - compute_project_info
             - logging_sync
             - project_audit_config
+            - project_iam_binding
 
   - name: logging_project
     driver:

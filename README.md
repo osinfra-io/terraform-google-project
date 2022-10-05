@@ -59,8 +59,8 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.34.0 |
-| <a name="provider_random"></a> [random](#provider_random) | 3.4.1 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.36.0 |
+| <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
 
 ### Resources
 
@@ -71,6 +71,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 | [google_logging_project_sink.cis_2_2_logging_sink](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink) | resource |
 | [google_project.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project) | resource |
 | [google_project_iam_audit_config.cis_2_1](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_audit_config) | resource |
+| [google_project_iam_member.cis_2_2](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [random_id.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 
 ### Inputs
@@ -91,8 +92,10 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Description |
 |------|-------------|
+| <a name="output_cis_2_2_logging_sink_project_id"></a> [cis_2_2_logging_sink_project_id](#output_cis_2_2_logging_sink_project_id) | The CIS 2.2 logging sink benchmark project ID |
 | <a name="output_project_id"></a> [project_id](#output_project_id) | The project ID |
 | <a name="output_project_number"></a> [project_number](#output_project_number) | The project number |
+| <a name="output_unique_writer_identity"></a> [unique_writer_identity](#output_unique_writer_identity) | The unique identity associated with this sink |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Module Development

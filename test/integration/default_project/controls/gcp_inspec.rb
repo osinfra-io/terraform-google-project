@@ -3,7 +3,9 @@
 
 # Since this is the default test, we want to test as much as possible here and not be redundant in the other tests.
 
+cis_2_2_logging_sink_project_id = input('cis_2_2_logging_sink_project_id')
 project_id = input('project_id')
+unique_writer_identity = input('unique_writer_identity')
 
 control 'compute_project_info' do
   title 'Compute Project Info'
@@ -26,6 +28,18 @@ control 'logging_sync' do
     it { should exist }
     destination = 'logging.googleapis.com/projects/devops-testing-tf67de-sb'
     its('destination') { should eq "#{destination}/locations/global/buckets/cis-2-2-logging-sink" }
+  end
+end
+
+control 'project_iam_binding' do
+  title 'Project IAM Binding'
+
+  # Project IAM Binding Resource
+  # https://docs.chef.io/inspec/resources/google_project_iam_binding
+
+  describe google_project_iam_binding(project: cis_2_2_logging_sink_project_id, role: 'roles/logging.logWriter') do
+    it { should exist }
+    its('members') { should include unique_writer_identity }
   end
 end
 
