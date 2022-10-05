@@ -48,7 +48,7 @@ resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
 
 resource "google_project" "this" {
 
-  # 3.1 Ensure that the default network does not exist in a project.
+  # CIS 3.1 Ensure that the default network does not exist in a project.
   # The default network has a pre-configured network configuration that is not suitable for production use.
 
   auto_create_network = false
