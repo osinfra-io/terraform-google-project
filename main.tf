@@ -101,7 +101,7 @@ resource "google_project_iam_member" "cis_2_2" {
 
   member  = google_logging_project_sink.cis_2_2_logging_sink.writer_identity
   project = local.cis_2_2_logging_sink_project_id
-  role    = "roles/logging.logWriter"
+  role    = "roles/logging.bucketWriter"
 }
 
 # Random ID Resource

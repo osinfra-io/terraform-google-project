@@ -37,7 +37,7 @@ control 'project_iam_binding' do
   # Project IAM Binding Resource
   # https://docs.chef.io/inspec/resources/google_project_iam_binding
 
-  describe google_project_iam_binding(project: cis_2_2_logging_sink_project_id, role: 'roles/logging.logWriter') do
+  describe google_project_iam_binding(project: cis_2_2_logging_sink_project_id, role: 'roles/logging.bucketWriter') do
     it { should exist }
     its('members') { should include unique_writer_identity }
   end
