@@ -59,7 +59,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.36.0 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.40.0 |
 | <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
 
 ### Resources
