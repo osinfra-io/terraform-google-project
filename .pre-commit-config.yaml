@@ -11,14 +11,14 @@ repos:
     -   id: check-symlinks
 
 - repo: https://github.com/bridgecrewio/checkov
-  rev: 2.1.227
+  rev: 2.1.269
   hooks:
   - id: checkov
     verbose: true
     args: [--soft-fail]
 
 - repo: https://github.com/antonbabenko/pre-commit-terraform
-  rev: v1.75.0
+  rev: v1.76.0
   hooks:
     - id: terraform_fmt
     - id: terraform_docs

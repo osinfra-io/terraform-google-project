@@ -10,9 +10,6 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
   value   = true
 }
 
-# Project Logging Sink Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink
-
 # We disable _Default logging sink at the organization level to avoid duplicate logs
 # https://cloud.google.com/logging/docs/default-settings#disable-default-sink
 # gcloud alpha logging settings update --organization=${ORGANIZATION_ID} --disable-default-sink
@@ -24,12 +21,18 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
 # CIS 2.2 Ensure that sinks are configured for all log entries.
 # It is recommended to create a sink that will export copies of all the log entries.
 
+# Project Logging Sink Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink
+
 resource "google_logging_project_sink" "cis_2_2_logging_sink" {
   destination            = local.cis_2_2_logging_sink_storage_bucket
   name                   = "cis-2-2-logging-sink"
   project                = google_project.this.project_id
   unique_writer_identity = true
 }
+
+# Project Logging Bucket Config Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_bucket_config
 
 resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
@@ -45,7 +48,7 @@ resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
 
 resource "google_project" "this" {
 
-  # 3.1 Ensure that the default network does not exist in a project.
+  # CIS 3.1 Ensure that the default network does not exist in a project.
   # The default network has a pre-configured network configuration that is not suitable for production use.
 
   auto_create_network = false
@@ -85,6 +88,20 @@ resource "google_project_iam_audit_config" "cis_2_1" {
       log_type = audit_log_config.key
     }
   }
+}
+
+# Project IAM Member Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
+
+resource "google_project_iam_member" "cis_2_2" {
+
+  # We do not need to add the role to the project if the log bucket and sync are in the same project.
+
+  count = var.cis_2_2_logging_sink_project_id == "" ? 0 : 1
+
+  member  = google_logging_project_sink.cis_2_2_logging_sink.writer_identity
+  project = local.cis_2_2_logging_sink_project_id
+  role    = "roles/logging.bucketWriter"
 }
 
 # Random ID Resource
