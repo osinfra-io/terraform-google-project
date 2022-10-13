@@ -2,7 +2,7 @@
 
 **[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
 
-[![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml) [![Infracost](https://github.com/osinfra-io/terraform-google-project/actions/workflows/infracost.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/infracost.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
+[![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
 
 **[Bridgecrew](https://bridgecrew.io/):**
 
