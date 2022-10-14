@@ -1,0 +1,18 @@
+# Infracost Usage File
+# https://www.infracost.io/docs/features/usage_file
+
+version: 0.1
+resource_type_default_usage:
+
+  # The following usage values apply to each resource of the given type, which is useful when you want to define defaults.
+
+  google_logging_project_sink:
+    monthly_logging_data_gb: 10.0 # Monthly logging data in GB.
+
+# resource_usage:
+
+  # The following usage values apply to individual resources and override any value defined in the resource_type_default_usage section.
+  # All values are commented-out, you can uncomment resources and customize as needed.
+
+  # module.test.google_logging_project_sink.cis_2_2_logging_sink:
+    # monthly_logging_data_gb: 0.0 # Monthly logging data in GB.
