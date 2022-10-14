@@ -2,7 +2,7 @@
 
 **[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
 
-[![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml) [![Infracost](https://github.com/osinfra-io/terraform-google-project/actions/workflows/infracost.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/infracost.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
+[![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
 
 **[Bridgecrew](https://bridgecrew.io/):**
 
@@ -59,7 +59,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.36.0 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.40.0 |
 | <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
 
 ### Resources
