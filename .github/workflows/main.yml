@@ -39,17 +39,17 @@ jobs:
       # https://github.com/marketplace/actions/kitchen-terraform-github-action
 
       - name: Run Kitchen Converge
-        uses: osinfra-io/github-kitchen-terraform-action@v1.1.0
+        uses: osinfra-io/github-kitchen-terraform-action@v1.2.0
         with:
           kitchen-command: converge
 
       - name: Run Kitchen Verify
-        uses: osinfra-io/github-kitchen-terraform-action@v1.1.0
+        uses: osinfra-io/github-kitchen-terraform-action@v1.2.0
         with:
           kitchen-command: verify
 
       - name: Run Kitchen Destroy
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: osinfra-io/github-kitchen-terraform-action@v1.1.0
+        uses: osinfra-io/github-kitchen-terraform-action@v1.2.0
         with:
           kitchen-command: destroy
