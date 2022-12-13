@@ -24,7 +24,7 @@ jobs:
       # https://github.com/marketplace/actions/checkout
 
       - name: GitHub Checkout
-        uses: actions/checkout@v3.1.0
+        uses: actions/checkout@v3.2.0
 
       # Google Cloud Platform - Setup gcloud environment
       # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
