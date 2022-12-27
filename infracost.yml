@@ -4,10 +4,10 @@
 version: 0.1
 
 projects:
-  - name: "Google Project Module - Default Project"
+  - name: "terraform-google-project - Default Project"
     path: test/fixtures/default_project
     usage_file: test/fixtures/default_project/infracost-usage.yml
 
-  - name: "Google Project Module - Logging Project"
+  - name: "terraform-google-project - Logging Project"
     path: test/fixtures/logging_project
     usage_file: test/fixtures/logging_project/infracost-usage.yml

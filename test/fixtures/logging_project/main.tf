@@ -7,13 +7,13 @@ module "test" {
 
   billing_account = var.billing_account
   cost_center     = "x000"
-  env             = "temp"
+  env             = "sb"
   folder_id       = "927951427023"
 
   labels = {
     key = "value",
   }
 
-  prefix = "devops"
-  system = "logging"
+  prefix = "kitchen"
+  system = "temp"
 }

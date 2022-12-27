@@ -14,4 +14,4 @@ sort:
   by: required
 settings:
   escape: false
-  indent: 3
+  indent: 4

@@ -26,7 +26,7 @@ control 'logging_sync' do
 
   describe google_logging_project_sink(project: project_id, name: 'cis-2-2-logging-sink') do
     it { should exist }
-    destination = 'logging.googleapis.com/projects/devops-testing-tf67de-sb'
+    destination = 'logging.googleapis.com/projects/kitchen-testing-tf67de-sb'
     its('destination') { should eq "#{destination}/locations/global/buckets/cis-2-2-logging-sink" }
   end
 end
