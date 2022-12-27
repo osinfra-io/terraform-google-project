@@ -43,7 +43,7 @@ Project names include a prefix, a description as well as
 an environment, for example:
 
 ```none
-test-tools-tf3357-sb
+team-example-tf3357-sb
 ```
 
 The `tf3357` is a hex output from the random resource. We do not want to duplicate project IDs because project IDs are globally unique. Also, when you delete a project, it goes into a pending deletion state for 30 days, where you can't reuse the project ID. If you want to exclude this from your project name, you can use the variable: `random_project_id = false`
