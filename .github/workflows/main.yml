@@ -17,7 +17,7 @@ jobs:
     if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     env:
-      BILLING_ID: ${{ secrets.BILLING_ID }}
+      BILLING_ACCOUNT: ${{ secrets.BILLING_ACCOUNT }}
 
     steps:
       # GitHub - Checkout

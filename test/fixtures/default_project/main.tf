@@ -11,14 +11,14 @@ module "test" {
   # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
   # resource will not be created.
 
-  cis_2_2_logging_sink_project_id = "devops-testing-tf67de-sb" # This project has been created for tests.
-  env                             = "temp"
-  folder_id                       = "927951427023"
+  cis_2_2_logging_sink_project_id = "kitchen-testing-tf67de-sb" # This project has been created for tests.
+  env                             = "sb"
+  folder_id                       = "773178458475"
 
   labels = {
     key = "value",
   }
 
-  prefix = "devops"
-  system = "default"
+  prefix = "kitchen"
+  system = "temp"
 }

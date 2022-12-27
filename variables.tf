@@ -30,7 +30,7 @@ variable "folder_id" {
 }
 
 variable "prefix" {
-  description = "The team prefix for example: `ops` (Operations), `devops` (DevOps), `sec` (Security)"
+  description = "The team prefix for example: `ops` (Operations), `sec` (Security)"
   type        = string
   default     = "test"
 }
