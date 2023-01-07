@@ -108,7 +108,8 @@ resource "google_project_iam_member" "cis_2_2" {
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
 
 resource "random_id" "this" {
-  count       = var.random_project_id ? 1 : 0
+  count = var.random_project_id ? 1 : 0
+
   prefix      = "tf"
   byte_length = "2"
 }
