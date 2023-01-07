@@ -121,8 +121,8 @@ A child module automatically inherits its parent's default (un-aliased) provider
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_account"></a> [billing_account](#input_billing_account) | The alphanumeric ID of the billing account this project belongs to | `string` | n/a | yes |
 | <a name="input_cost_center"></a> [cost_center](#input_cost_center) | The cost center to label the project with | `string` | n/a | yes |
+| <a name="input_description"></a> [description](#input_description) | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
 | <a name="input_folder_id"></a> [folder_id](#input_folder_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
-| <a name="input_system"></a> [system](#input_system) | The short name representing the system or part of the system you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
 | <a name="input_cis_2_2_logging_sink_project_id"></a> [cis_2_2_logging_sink_project_id](#input_cis_2_2_logging_sink_project_id) | The CIS 2.2 logging sink benchmark project ID | `string` | `""` | no |
 | <a name="input_environment"></a> [environment](#input_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
 | <a name="input_labels"></a> [labels](#input_labels) | A set of key/value label pairs to assign to the project | `map(string)` | `{}` | no |
