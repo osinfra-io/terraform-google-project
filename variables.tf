@@ -18,7 +18,7 @@ variable "cost_center" {
   type        = string
 }
 
-variable "env" {
+variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
   default     = "sb"

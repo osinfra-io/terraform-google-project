@@ -7,7 +7,7 @@ module "test" {
 
   billing_account = var.billing_account
   cost_center     = "x000"
-  env             = "sb"
+  environment     = "sb"
   folder_id       = "927951427023"
 
   labels = {
