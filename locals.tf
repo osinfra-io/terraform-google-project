@@ -2,7 +2,7 @@
 # https://www.terraform.io/language/values/locals
 
 locals {
-  base_project_id = "${var.prefix}-${var.system}-${var.environment}"
+  base_project_id = "${var.prefix}-${var.description}-${var.environment}"
 
   # Conditional Expressions
   # https://www.terraform.io/language/expressions/conditionals
@@ -16,7 +16,7 @@ locals {
   project_id = var.random_project_id ? format(
     "%s-%s-%s-%s",
     var.prefix,
-    var.system,
+    var.description,
     random_id.this[0].hex,
     var.environment,
   ) : local.base_project_id

@@ -18,6 +18,11 @@ variable "cost_center" {
   type        = string
 }
 
+variable "description" {
+  description = "A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project)"
+  type        = string
+}
+
 variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
@@ -39,11 +44,6 @@ variable "random_project_id" {
   description = "If true, a random hex value with a prefix of tf will be added to the `project_id`"
   type        = bool
   default     = true
-}
-
-variable "system" {
-  description = "The short name representing the system or part of the system you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project)"
-  type        = string
 }
 
 variable "labels" {
