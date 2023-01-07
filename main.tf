@@ -111,5 +111,5 @@ resource "random_id" "this" {
   count = var.random_project_id ? 1 : 0
 
   prefix      = "tf"
-  byte_length = "2"
+  byte_length = "1"
 }
