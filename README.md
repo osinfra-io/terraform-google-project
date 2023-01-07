@@ -10,17 +10,15 @@
 
 **[Infracost](https://www.infracost.io):**
 
-Monthly cost estimates for this module based off these usage values:
-
-[Default Project](test/fixtures/default_project/infracost-usage.yml)
-
-[Logging Project](test/fixtures/logging_project/infracost-usage.yml)
-
 [![infracost](https://img.shields.io/endpoint?label=Default%20Project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/4f08e74a-4ef9-4846-9fe6-2944f9d77745)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8) [![infracost](https://img.shields.io/endpoint?label=Logging%20Project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/f297b232-1947-471a-a52c-4cf8b77cfa09)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8)
 
-Terraform example module for a Google Cloud Platform project.
+Monthly cost estimates for this module based off these usage values: [Default Project](test/fixtures/default_project/infracost-usage.yml), [Logging Project](test/fixtures/logging_project/infracost-usage.yml)
 
-We do not recommend consuming this module like you might a [public module](https://registry.terraform.io/browse/modules). Its purpose is to be a baseline, something you can fork and potentially maintain on your own and modify to fit your organization's needs. Using public modules vs. writing your own have various [drivers and trade-offs](https://github.com/orgs/osinfra-io/discussions/3) that your organization should evaluate.
+## Module Description
+
+Terraform **example** module for a Google Cloud Platform project.
+
+*We do not recommend consuming this module like you might a [public module](https://registry.terraform.io/browse/modules). Its purpose is to be a baseline, something you can fork and potentially maintain on your own and modify to fit your organization's needs. Using public modules vs. writing your own have various [drivers and trade-offs](https://github.com/orgs/osinfra-io/discussions/3) that your organization should evaluate.*
 
 ## Usage
 
