@@ -25,7 +25,7 @@ module "project" {
   billing_id                      = "555-555-555-555"
   cis_2_2_logging_sink_project_id = "example-logging-project"
   cost_center                     = "x000"
-  env                             = "sb"
+  environment                     = "sb"
   folder_id                       = "1111111111111"
 
   labels = {
