@@ -12,7 +12,7 @@ module "test" {
   # resource will not be created.
 
   cis_2_2_logging_sink_project_id = "kitchen-testing-tf67de-sb" # This project has been created for tests.
-  env                             = "sb"
+  environment                     = "sb"
   folder_id                       = "773178458475"
 
   labels = {

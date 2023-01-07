@@ -6,11 +6,19 @@
 
 **[Bridgecrew](https://bridgecrew.io/):**
 
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/cis_gcp)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=CIS+GCP+V1.1)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=INFRASTRUCTURE+SECURITY) [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/cis_gcp)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=CIS+GCP+V1.1)
 
-Terraform example module for a Google Cloud Platform project.
+**[Infracost](https://www.infracost.io):**
 
-We do not recommend consuming this module like you might a [public module](https://registry.terraform.io/browse/modules). Its purpose is to be a baseline, something you can fork and potentially maintain on your own and modify to fit your organization's needs. Using public modules vs. writing your own have various [drivers and trade-offs](https://github.com/orgs/osinfra-io/discussions/3) that your organization should evaluate.
+[![infracost](https://img.shields.io/endpoint?label=Default%20Project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/4f08e74a-4ef9-4846-9fe6-2944f9d77745)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8) [![infracost](https://img.shields.io/endpoint?label=Logging%20Project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/f297b232-1947-471a-a52c-4cf8b77cfa09)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8)
+
+Monthly cost estimates for this module based off these usage values: [Default Project](test/fixtures/default_project/infracost-usage.yml), [Logging Project](test/fixtures/logging_project/infracost-usage.yml)
+
+## Module Description
+
+Terraform **example** module for a Google Cloud Platform project.
+
+*We do not recommend consuming this module like you might a [public module](https://registry.terraform.io/browse/modules). Its purpose is to be a baseline, something you can fork and potentially maintain on your own and modify to fit your organization's needs. Using public modules vs. writing your own have various [drivers and trade-offs](https://github.com/orgs/osinfra-io/discussions/3) that your organization should evaluate.*
 
 ## Usage
 
@@ -25,7 +33,7 @@ module "project" {
   billing_id                      = "555-555-555-555"
   cis_2_2_logging_sink_project_id = "example-logging-project"
   cost_center                     = "x000"
-  env                             = "sb"
+  environment                     = "sb"
   folder_id                       = "1111111111111"
 
   labels = {
@@ -116,7 +124,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 | <a name="input_folder_id"></a> [folder_id](#input_folder_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
 | <a name="input_system"></a> [system](#input_system) | The short name representing the system or part of the system you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
 | <a name="input_cis_2_2_logging_sink_project_id"></a> [cis_2_2_logging_sink_project_id](#input_cis_2_2_logging_sink_project_id) | The CIS 2.2 logging sink benchmark project ID | `string` | `""` | no |
-| <a name="input_env"></a> [env](#input_env) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| <a name="input_environment"></a> [environment](#input_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
 | <a name="input_labels"></a> [labels](#input_labels) | A set of key/value label pairs to assign to the project | `map(string)` | `{}` | no |
 | <a name="input_prefix"></a> [prefix](#input_prefix) | The team prefix for example: `ops` (Operations), `sec` (Security) | `string` | `"test"` | no |
 | <a name="input_random_project_id"></a> [random_project_id](#input_random_project_id) | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
