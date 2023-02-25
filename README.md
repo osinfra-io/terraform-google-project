@@ -4,10 +4,6 @@
 
 [![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/main.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
 
-**[Bridgecrew](https://bridgecrew.io/):**
-
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=INFRASTRUCTURE+SECURITY) [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/terraform-google-project/cis_gcp)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fterraform-google-project&benchmark=CIS+GCP+V1.1)
-
 **[Infracost](https://www.infracost.io):**
 
 [![infracost](https://img.shields.io/endpoint?label=Default%20Project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/4f08e74a-4ef9-4846-9fe6-2944f9d77745)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8) [![infracost](https://img.shields.io/endpoint?label=Logging%20Project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/f297b232-1947-471a-a52c-4cf8b77cfa09)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8)
