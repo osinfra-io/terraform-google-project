@@ -9,7 +9,7 @@ module "test" {
   cost_center     = "x000"
   description     = "temp"
   environment     = "sb"
-  folder_id       = "927951427023"
+  folder_id       = "1069400145815"
 
   labels = {
     key = "value",

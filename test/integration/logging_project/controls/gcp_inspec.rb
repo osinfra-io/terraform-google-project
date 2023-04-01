@@ -3,8 +3,8 @@
 
 project_id = input('project_id')
 
-control 'logging_sync' do
-  title 'Logging Sync'
+control 'logging_project_sync' do
+  title 'Logging Project Sync'
 
   # Logging Project Sink Resource
   # https://docs.chef.io/inspec/resources/google_logging_project_sink

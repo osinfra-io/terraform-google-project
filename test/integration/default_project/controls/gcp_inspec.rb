@@ -26,7 +26,7 @@ control 'logging_sync' do
 
   describe google_logging_project_sink(project: project_id, name: 'cis-2-2-logging-sink') do
     it { should exist }
-    destination = 'logging.googleapis.com/projects/kitchen-testing-tf67de-sb'
+    destination = 'logging.googleapis.com/projects/plt-lz-audit01-tf6e-sb'
     its('destination') { should eq "#{destination}/locations/global/buckets/cis-2-2-logging-sink" }
   end
 end
@@ -43,8 +43,8 @@ control 'project_iam_binding' do
   end
 end
 
-control 'project_audit_config' do
-  title 'Project Audit Config'
+control 'project_logging_audit_config' do
+  title 'Project Logging Audit Config'
 
   # Project Logging Audit Config Resource
   # https://docs.chef.io/inspec/resources/google_project_logging_audit_config
@@ -54,5 +54,17 @@ control 'project_audit_config' do
     its('default_types') { should include 'ADMIN_READ' }
     its('default_types') { should include 'DATA_READ' }
     its('default_types') { should include 'DATA_WRITE' }
+  end
+end
+
+control 'project_service' do
+  title 'Project Service'
+
+  # Project Service Resource
+  # https://docs.chef.io/inspec/resources/google_project_service
+
+  describe google_project_service(project: project_id, name: 'logging.googleapis.com') do
+    it { should exist }
+    its('state') { should eq 'ENABLED' }
   end
 end

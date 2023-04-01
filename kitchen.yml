@@ -27,8 +27,9 @@ suites:
           controls:
             - compute_project_info
             - logging_sync
-            - project_audit_config
             - project_iam_binding
+            - project_logging_audit_config
+            - project_service
 
   - name: logging_project
     driver:
@@ -39,4 +40,4 @@ suites:
         - name: inspec_gcp
           backend: gcp
           controls:
-            - logging_sync
+            - logging_project_sync

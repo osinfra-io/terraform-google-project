@@ -95,7 +95,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.47.0 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.59.0 |
 | <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
 
 #### Resources
@@ -108,6 +108,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 | [google_project.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project) | resource |
 | [google_project_iam_audit_config.cis_2_1](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_audit_config) | resource |
 | [google_project_iam_member.cis_2_2](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
+| [google_project_service.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [random_id.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 
 #### Inputs
@@ -123,6 +124,7 @@ A child module automatically inherits its parent's default (un-aliased) provider
 | <a name="input_labels"></a> [labels](#input_labels) | A set of key/value label pairs to assign to the project | `map(string)` | `{}` | no |
 | <a name="input_prefix"></a> [prefix](#input_prefix) | The team prefix for example: `ops` (Operations), `sec` (Security) | `string` | `"test"` | no |
 | <a name="input_random_project_id"></a> [random_project_id](#input_random_project_id) | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
+| <a name="input_services"></a> [services](#input_services) | A list of services to enable in the project | `list(string)` | `[]` | no |
 
 #### Outputs
 

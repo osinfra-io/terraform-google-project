@@ -7,12 +7,12 @@ module "test" {
 
   billing_account = var.billing_account
   cost_center     = "x000"
-  description     = "temp"
 
   # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
   # resource will not be created.
 
   cis_2_2_logging_sink_project_id = "plt-lz-audit01-tf6e-sb" # This project has been created for tests.
+  description                     = "temp"
   environment                     = "sb"
   folder_id                       = "1069400145815"
 
@@ -21,4 +21,8 @@ module "test" {
   }
 
   prefix = "kitchen"
+
+  services = [
+    "compute.googleapis.com"
+  ]
 }
