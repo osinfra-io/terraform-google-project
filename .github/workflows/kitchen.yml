@@ -15,11 +15,15 @@ on:
 permissions:
   id-token: write
 
+env:
+  BILLING_ACCOUNT: ${{ secrets.BILLING_ACCOUNT }}
+
 jobs:
   kitchen_terraform:
     name: "Kitchen-Terraform"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@brettcurtis/issue50
     if: github.actor != 'dependabot[bot]'
+
     with:
       service_account: "plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
       workload_identity_provider: "projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc"
