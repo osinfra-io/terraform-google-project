@@ -16,7 +16,7 @@ permissions:
   id-token: write
 
 env:
-  BILLING_ACCOUNT: ${{ secrets.BILLING_ACCOUNT }}
+  TF_VAR_billing_account: ${{ secrets.BILLING_ACCOUNT }}
 
 jobs:
   kitchen_terraform:
