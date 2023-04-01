@@ -3,8 +3,8 @@
 
 driver:
   name: terraform
-  # variables:
-  #   billing_account: <%= ENV['BILLING_ACCOUNT'] %>
+  variables:
+    billing_account: <%= ENV['BILLING_ACCOUNT'] %>
 
 provisioner:
   name: terraform
