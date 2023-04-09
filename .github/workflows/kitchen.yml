@@ -18,7 +18,7 @@ permissions:
 jobs:
   kitchen_terraform:
     name: "Kitchen-Terraform"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@brettcurtis/issue50
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@temp-remove-verify
     if: github.actor != 'dependabot[bot]'
 
     with:
