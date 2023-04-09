@@ -112,7 +112,7 @@ resource "google_project_iam_member" "cis_2_2" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 
 resource "google_project_service" "this" {
-  for_each = toset(local.services)
+  for_each = local.services
 
   project = google_project.this.project_id
   service = each.key

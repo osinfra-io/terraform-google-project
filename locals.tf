@@ -24,10 +24,10 @@ locals {
   # Concat Function
   # https://www.terraform.io/language/functions/concat
 
-  services = concat(
+  services = toset(concat(
     var.services,
     [
       "logging.googleapis.com"
     ]
-  )
+  ))
 }
