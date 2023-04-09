@@ -62,9 +62,8 @@ See the documentation for setting up a local development environment [here](http
 
 ### Tools
 
-- [chef-inspec](https://github.com/inspec/inspec)
 - [infracost](https://github.com/infracost/infracost)
-- [inspec-gcp](https://github.com/inspec/inspec-gcp)
+- [inspec](https://github.com/inspec/inspec)
 - [kitchen-terraform](https://github.com/newcontext-oss/kitchen-terraform)
 - [pre-commit](https://github.com/pre-commit/pre-commit)
 - [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
@@ -74,6 +73,7 @@ See the documentation for setting up a local development environment [here](http
 
 Links to documentation and other resources required to develop and iterate in this repository successfully.
 
+- [Google Cloud Platform APIs](https://console.cloud.google.com/apis/library)
 - [Google Cloud Platform audit logs](https://cloud.google.com/logging/docs/audit)
 - [Google Cloud Platform logging routing](https://cloud.google.com/logging/docs/routing)
 - [Google Cloud Platform project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
