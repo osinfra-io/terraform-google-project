@@ -20,4 +20,14 @@ locals {
     random_id.this[0].hex,
     var.environment,
   ) : local.base_project_id
+
+  # Concat Function
+  # https://www.terraform.io/language/functions/concat
+
+  services = toset(concat(
+    var.services,
+    [
+      "logging.googleapis.com"
+    ]
+  ))
 }

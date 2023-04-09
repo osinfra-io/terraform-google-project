@@ -7,6 +7,6 @@ terraform {
   # https://www.terraform.io/language/settings/backends/gcs
 
   backend "gcs" {
-    bucket = "terraform-child-modules-github-actions-state"
+    bucket = "plt-lz-testing-2c8b-sb"
   }
 }

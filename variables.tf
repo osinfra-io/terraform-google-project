@@ -46,6 +46,12 @@ variable "random_project_id" {
   default     = true
 }
 
+variable "services" {
+  description = "A list of services to enable in the project"
+  type        = list(string)
+  default     = []
+}
+
 variable "labels" {
   description = "A set of key/value label pairs to assign to the project"
   type        = map(string)

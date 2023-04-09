@@ -7,7 +7,7 @@ resource_type_default_usage:
   # The following usage values apply to each resource of the given type, which is useful when you want to define defaults.
 
   google_logging_project_bucket_config:
-    monthly_logging_data_gb: 10.0 # Monthly logging data in GB.
+    monthly_logging_data_gb: 100.0 # Monthly logging data in GB.
   google_logging_project_sink:
     monthly_logging_data_gb: 10.0 # Monthly logging data in GB.
 

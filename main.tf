@@ -29,6 +29,10 @@ resource "google_logging_project_sink" "cis_2_2_logging_sink" {
   name                   = "cis-2-2-logging-sink"
   project                = google_project.this.project_id
   unique_writer_identity = true
+
+  depends_on = [
+    google_project_service.this
+  ]
 }
 
 # Project Logging Bucket Config Resource
@@ -102,6 +106,18 @@ resource "google_project_iam_member" "cis_2_2" {
   member  = google_logging_project_sink.cis_2_2_logging_sink.writer_identity
   project = local.cis_2_2_logging_sink_project_id
   role    = "roles/logging.bucketWriter"
+}
+
+# Project Service Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
+
+resource "google_project_service" "this" {
+  for_each = local.services
+
+  project = google_project.this.project_id
+  service = each.key
+
+  disable_on_destroy = false
 }
 
 # Random ID Resource
