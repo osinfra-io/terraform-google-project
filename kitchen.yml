@@ -6,18 +6,21 @@ driver:
   variables:
     billing_account: <%= ENV['BILLING_ACCOUNT'] %>
 
+platforms:
+  - name: gcp
+
 provisioner:
+  name: terraform
+
+transport:
   name: terraform
 
 verifier:
   name: terraform
 
-platforms:
-  - name: gcp
-
 suites:
   - name: default_project
-    driver:
+    transport:
       root_module_directory: test/fixtures/default_project
     verifier:
       color: true
@@ -32,7 +35,7 @@ suites:
             - project_service
 
   - name: logging_project
-    driver:
+    transport:
       root_module_directory: test/fixtures/logging_project
     verifier:
       color: true
