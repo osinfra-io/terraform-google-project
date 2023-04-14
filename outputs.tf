@@ -4,6 +4,7 @@
 output "cis_2_2_logging_sink_project_id" {
   description = "The CIS 2.2 logging sink benchmark project ID"
   value       = local.cis_2_2_logging_sink_project_id
+  sensitive   = true
 }
 
 output "project_id" {
