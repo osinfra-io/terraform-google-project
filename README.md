@@ -29,6 +29,7 @@ module "project" {
   billing_id                      = "555-555-555-555"
   cis_2_2_logging_sink_project_id = "example-logging-project"
   cost_center                     = "x000"
+  description                     = "example"
   environment                     = "sb"
   folder_id                       = "1111111111111"
 
@@ -37,7 +38,10 @@ module "project" {
   }
 
   prefix = "team"
-  system = "example"
+
+  services = [
+    "compute.googleapis.com"
+  ]
 }
 ```
 
@@ -95,8 +99,8 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.47.0 |
-| <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.61.0 |
+| <a name="provider_random"></a> [random](#provider_random) | 3.5.1 |
 
 #### Resources
 
