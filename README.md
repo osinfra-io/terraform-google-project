@@ -29,6 +29,7 @@ module "project" {
   billing_id                      = "555-555-555-555"
   cis_2_2_logging_sink_project_id = "example-logging-project"
   cost_center                     = "x000"
+  description                     = "example"
   environment                     = "sb"
   folder_id                       = "1111111111111"
 
@@ -37,7 +38,10 @@ module "project" {
   }
 
   prefix = "team"
-  system = "example"
+
+  services = [
+    "compute.googleapis.com"
+  ]
 }
 ```
 
@@ -47,10 +51,10 @@ Project names include a prefix, a description as well as
 an environment, for example:
 
 ```none
-team-example-tf3357-sb
+team-example-tf2a-sb
 ```
 
-The `tf3357` is a hex output from the random resource. We do not want to duplicate project IDs because project IDs are globally unique. Also, when you delete a project, it goes into a pending deletion state for 30 days, where you can't reuse the project ID. If you want to exclude this from your project name, you can use the variable: `random_project_id = false`
+The `tf2a` is a hex output from the random resource. We do not want to duplicate project IDs because project IDs are globally unique. Also, when you delete a project, it goes into a pending deletion state for 30 days, where you can't reuse the project ID. If you want to exclude this from your project name, you can use the variable: `random_project_id = false`
 
 ## <img align="left" width="35" height="35" src="https://user-images.githubusercontent.com/1610100/209029142-410349b7-4b22-40a9-9d4d-729f07e2b4a2.png"> Development
 
@@ -95,8 +99,8 @@ A child module automatically inherits its parent's default (un-aliased) provider
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.47.0 |
-| <a name="provider_random"></a> [random](#provider_random) | 3.4.3 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.61.0 |
+| <a name="provider_random"></a> [random](#provider_random) | 3.5.1 |
 
 #### Resources
 

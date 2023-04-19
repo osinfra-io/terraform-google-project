@@ -116,8 +116,6 @@ resource "google_project_service" "this" {
 
   project = google_project.this.project_id
   service = each.key
-
-  disable_on_destroy = false
 }
 
 # Random ID Resource
