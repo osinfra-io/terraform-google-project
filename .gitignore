@@ -36,9 +36,6 @@ plan.out
 # Ignore Infracost directories and files
 .infracost
 
-# Ignore vscode directories and files
-.vscode
-
 # Other Files
 *.log
 *.bak
