@@ -2,7 +2,7 @@
 
 **[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
 
-[![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/kitchen.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/kitchen.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
+[![Kitchen Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/kitchen.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/kitchen.yml) [![CodeQL](https://github.com/osinfra-io/terraform-google-project/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/github-code-scanning/codeql) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
 
 **[Infracost](https://www.infracost.io):**
 
