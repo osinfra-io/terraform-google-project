@@ -10,8 +10,8 @@
 
 Monthly cost estimates for this module based off these usage values:
 
-- [Default Project](test/fixtures/default_project/infracost-usage.yml)
-- [Logging Project](test/fixtures/logging_project/infracost-usage.yml)
+- [default project](test/fixtures/default_project/infracost-usage.yml)
+- [logging project](test/fixtures/logging_project/infracost-usage.yml)
 
 ## Module Description
 
@@ -29,7 +29,7 @@ Here is an example of a basic configuration:
 module "project" {
   source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.0.0"
 
-  billing_id                      = "555-555-555-555"
+  billing_account                 = "555-555-555-555"
   cis_2_2_logging_sink_project_id = "example-logging-project"
   cost_center                     = "x000"
   description                     = "example"
@@ -95,4 +95,4 @@ bundle exec kitchen destroy
 
 ### Terraform Documentation
 
-- [Global Infrastructure](global/README.md)
+- [global infrastructure](global/README.md)
