@@ -10,4 +10,4 @@ Current versions being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Vulnerabilities can be reported by submitting an issue.
+Vulnerabilities can be reported [here](https://github.com/osinfra-io/google-cloud-services/security/advisories/new).
