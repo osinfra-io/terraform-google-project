@@ -1,4 +1,4 @@
-name: Kitchen-Terraform
+name: Infrastructure Tests
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   kitchen_terraform:
-    #name: "Tests"
+    name: "Tests"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@test-verify
     if: github.actor != 'dependabot[bot]'
 
