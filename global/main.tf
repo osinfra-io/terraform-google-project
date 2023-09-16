@@ -88,11 +88,27 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
     mime_type = "text/markdown"
   }
 
+  notification_channels = [
+    google_monitoring_notification_channel.security_notification_channel.name
+  ]
+
   project = google_project.this.project_id
 
   user_labels = {
     "status" = each.value.status
   }
+}
+
+# Monitoring Notification Channel Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel
+
+resource "google_monitoring_notification_channel" "security_notification_channel" {
+  display_name = "Security Notification Channel"
+  labels = {
+    "email_address" = var.security_notification_email
+  }
+  type    = "email"
+  project = google_project.this.project_id
 }
 
 # Project Resource
