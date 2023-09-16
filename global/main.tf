@@ -10,6 +10,18 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
   value   = true
 }
 
+# Logging Metric Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_metric
+
+resource "google_logging_metric" "cis_logging_metrics" {
+  for_each = local.cis_logging_metrics
+
+  description = each.value.description
+  filter      = each.value.filter
+  name        = each.key
+  project     = google_project.this.project_id
+}
+
 # We disable _Default logging sink at the organization level to avoid duplicate logs
 # https://cloud.google.com/logging/docs/default-settings#disable-default-sink
 # gcloud alpha logging settings update --organization=${ORGANIZATION_ID} --disable-default-sink
@@ -45,6 +57,42 @@ resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
   location       = "global"
   project        = google_project.this.project_id
   retention_days = 30
+}
+
+# Monitoring Alert Policy Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy
+
+resource "google_monitoring_alert_policy" "cis_logging_metrics" {
+  for_each = local.cis_logging_metrics
+
+  combiner = "OR"
+
+  conditions {
+    condition_threshold {
+      aggregations {
+        alignment_period     = "60s"
+        cross_series_reducer = "REDUCE_COUNT"
+        per_series_aligner   = "ALIGN_DELTA"
+      }
+      duration   = "0s"
+      comparison = "COMPARISON_GT"
+      filter     = "metric.type=\"logging.googleapis.com/user/${each.key}\" AND resource.type=\"${each.value.resource_type}\""
+    }
+    display_name = google_logging_metric.cis_logging_metrics[each.key].name
+  }
+
+  display_name = each.value.displayName
+
+  documentation {
+    content   = each.value.description
+    mime_type = "text/markdown"
+  }
+
+  project = google_project.this.project_id
+
+  user_labels = {
+    "status" = each.value.status
+  }
 }
 
 # Project Resource

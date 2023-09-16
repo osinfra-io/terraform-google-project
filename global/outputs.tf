@@ -1,6 +1,17 @@
 # Output Values
 # https://www.terraform.io/language/values/outputs
 
+output "cis_logging_metrics_alert_policy_names" {
+  description = "The CIS logging metrics alert policy names, we need these to test the resources with inspec"
+  value = [
+    for k, v in local.cis_logging_metrics :
+    {
+      key   = k
+      value = google_monitoring_alert_policy.cis_logging_metrics[k].name
+    }
+  ]
+}
+
 output "cis_2_2_logging_sink_project_id" {
   description = "The CIS 2.2 logging sink benchmark project ID"
   value       = local.cis_2_2_logging_sink_project_id

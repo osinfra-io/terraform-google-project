@@ -32,6 +32,7 @@ suites:
             - logging_sync
             - project_iam_binding
             - project_logging_audit_config
+            - project_metric
             - project_service
 
   - name: logging_project
