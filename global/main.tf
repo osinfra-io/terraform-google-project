@@ -88,11 +88,31 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
     mime_type = "text/markdown"
   }
 
+  notification_channels = [
+    google_monitoring_notification_channel.security.name
+  ]
+
   project = google_project.this.project_id
 
   user_labels = {
     "status" = each.value.status
   }
+}
+
+# Monitoring Notification Channel Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel
+
+resource "google_monitoring_notification_channel" "security" {
+  description = "Security notification channel created by the terraform-google-project child module"
+  display_name = "Security"
+  force_delete = true
+
+  labels = {
+    "email_address" = var.security_notification_email
+  }
+
+  project = google_project.this.project_id
+  type    = "email"
 }
 
 # Project Resource

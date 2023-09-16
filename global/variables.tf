@@ -46,6 +46,12 @@ variable "random_project_id" {
   default     = true
 }
 
+variable "security_notification_email" {
+  description = "The email address to send security notifications to"
+  type        = string
+  default     = "security@osinfra.io"
+}
+
 variable "services" {
   description = "A list of services to enable in the project"
   type        = list(string)
