@@ -84,10 +84,18 @@ Links to documentation and other resources required to develop and iterate in th
 
 - [apis](https://cloud.google.com/apis/docs/overview)
 - [audit logs](https://cloud.google.com/logging/docs/audit)
+- [logging metrics](https://cloud.google.com/logging/docs/logs-based-metrics)
 - [logging routing](https://cloud.google.com/logging/docs/routing/overview)
+- [monitoring alerts](https://cloud.google.com/monitoring/alerts)
 - [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
 ### 🔍 Tests
+
+You'll need to be a member of the [platform-contributors](https://groups.google.com/a/osinfra.io/g/platform-contributors) Google Group to run the tests. This group is used to manage access to Testing/Sandbox folder in the resource hierarchy. You can request access to this group by opening an issue [here](https://github.com/osinfra-io/google-cloud-hierarchy/issues/new?assignees=&labels=enhancement&projects=&template=add-update-identity-group.yml&title=Add+or+update+identity+group).
+
+```none
+bundle install
+```
 
 ```none
 bundle exec kitchen converge
