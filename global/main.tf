@@ -103,7 +103,7 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel
 
 resource "google_monitoring_notification_channel" "security" {
-  description = "Security notification channel created by the terraform-google-project child module"
+  description  = "Security notification channel created by the terraform-google-project child module"
   display_name = "Security"
   force_delete = true
 
