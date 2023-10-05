@@ -7,6 +7,12 @@ variable "billing_account" {
   sensitive   = true
 }
 
+variable "budget_notification_email" {
+  description = "The email address to send budget notifications to"
+  type        = string
+  default     = "billing-admins@osinfra.io"
+}
+
 variable "cis_2_2_logging_sink_project_id" {
   description = "The CIS 2.2 logging sink benchmark project ID"
   type        = string
@@ -32,6 +38,12 @@ variable "environment" {
 variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
+}
+
+variable "monthly_budget_amount" {
+  description = "The monthly budget amount in USD to set for the project"
+  type        = number
+  default     = 5
 }
 
 variable "prefix" {

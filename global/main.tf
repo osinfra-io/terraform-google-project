@@ -1,3 +1,43 @@
+# Billing Budget Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget
+
+resource "google_billing_budget" "project" {
+  all_updates_rule {
+    monitoring_notification_channels = [
+      google_monitoring_notification_channel.this["budget"].name
+    ]
+  }
+  amount {
+    specified_amount {
+      currency_code = "USD"
+      units         = var.monthly_budget_amount
+    }
+  }
+
+  billing_account = var.billing_account
+
+  budget_filter {
+    projects = ["projects/${google_project.this.number}"]
+  }
+
+  display_name = "Monthly: ${google_project.this.project_id}"
+
+  threshold_rules {
+    threshold_percent = 0.50
+    spend_basis       = "CURRENT_SPEND"
+  }
+
+  threshold_rules {
+    threshold_percent = 0.75
+    spend_basis       = "CURRENT_SPEND"
+  }
+
+  threshold_rules {
+    threshold_percent = 1.0
+    spend_basis       = "CURRENT_SPEND"
+  }
+}
+
 # Project Metadata Item Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata_item
 
@@ -89,7 +129,7 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
   }
 
   notification_channels = [
-    google_monitoring_notification_channel.security.name
+    google_monitoring_notification_channel.this["security"].name
   ]
 
   project = google_project.this.project_id
@@ -102,13 +142,14 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 # Monitoring Notification Channel Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel
 
-resource "google_monitoring_notification_channel" "security" {
-  description  = "Security notification channel created by the terraform-google-project child module"
-  display_name = "Security"
+resource "google_monitoring_notification_channel" "this" {
+  for_each     = local.monitoring_notification_channels
+  description  = each.value.description
+  display_name = each.value.display_name
   force_delete = true
 
   labels = {
-    "email_address" = var.security_notification_email
+    "email_address" = each.value.email_address
   }
 
   project = google_project.this.project_id
