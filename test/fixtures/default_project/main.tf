@@ -2,7 +2,6 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs
 
 # The google_billing_budget resource requires this if you are using User ADCs (Application Default Credentials).
-# Your account must have the serviceusage.services.use permission on the billing_project you defined as well.
 # The following APIs must be enabled on the billing_project:
 # - cloudresourcemanager.googleapis.com
 # - cloudidentity.googleapis.com
