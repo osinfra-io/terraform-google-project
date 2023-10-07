@@ -13,6 +13,12 @@ variable "budget_notification_email" {
   default     = "billing-admins@osinfra.io"
 }
 
+variable "cis_2_2_logging_bucket_locked" {
+  description = "Boolean to enable CIS 2.2 logging bucket lock"
+  type        = bool
+  default     = true
+}
+
 variable "cis_2_2_logging_sink_project_id" {
   description = "The CIS 2.2 logging sink benchmark project ID"
   type        = string
