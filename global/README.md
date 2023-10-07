@@ -41,7 +41,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The alphanumeric ID of the billing account this project belongs to | `string` | n/a | yes |
 | <a name="input_budget_notification_email"></a> [budget\_notification\_email](#input\_budget\_notification\_email) | The email address to send budget notifications to | `string` | `"billing-admins@osinfra.io"` | no |
-| <a name="input_cis_2_2_logging_bucket_lock"></a> [cis\_2\_2\_logging\_bucket\_lock](#input\_cis\_2\_2\_logging\_bucket\_lock) | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
+| <a name="input_cis_2_2_logging_bucket_locked"></a> [cis\_2\_2\_logging\_bucket\_locked](#input\_cis\_2\_2\_logging\_bucket\_locked) | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
 | <a name="input_cis_2_2_logging_sink_project_id"></a> [cis\_2\_2\_logging\_sink\_project\_id](#input\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink benchmark project ID | `string` | `""` | no |
 | <a name="input_cost_center"></a> [cost\_center](#input\_cost\_center) | The cost center to label the project with | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |

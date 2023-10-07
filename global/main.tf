@@ -95,7 +95,7 @@ resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
 
   bucket_id      = "cis-2-2-logging-sink"
   location       = "global"
-  locked         = var.cis_2_2_logging_bucket_lock
+  locked         = var.cis_2_2_logging_bucket_locked
   project        = google_project.this.project_id
   retention_days = 30
 }
