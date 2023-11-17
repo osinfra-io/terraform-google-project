@@ -7,7 +7,7 @@
 # - cloudidentity.googleapis.com
 
 provider "google" {
-  billing_project       = "testing-kitchen-tf11-sb"
+  billing_project       = "testing-kitchen-tfd2-sb"
   user_project_override = true
 }
 
@@ -25,7 +25,7 @@ module "test" {
 
   cis_2_2_logging_sink_project_id = "plt-lz-audit01-tf6e-sb" # This project has been created for tests.
   cost_center                     = "x000"
-  description                     = "temp"
+  description                     = "test"
   environment                     = "sb"
   folder_id                       = "1069400145815"
 

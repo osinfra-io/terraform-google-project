@@ -1,3 +1,14 @@
+# Logging Project CMEK Settings Data Source
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/logging_project_cmek_settings
+
+data "google_logging_project_cmek_settings" "this" {
+  project = google_project.this.project_id
+
+  depends_on = [
+    google_project_service.this
+  ]
+}
+
 # Billing Budget Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget
 
@@ -48,6 +59,45 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
   key     = "enable-oslogin"
   project = google_project.this.project_id
   value   = true
+
+  depends_on = [
+    google_project_service.this
+  ]
+}
+
+# KMS Crypto Key Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key
+
+resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
+  count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
+
+  key_ring        = google_kms_key_ring.this.id
+  name            = "cis-2-2-logging-sink"
+  rotation_period = "7776000s"
+}
+
+# KMS Key Ring Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring
+
+resource "google_kms_key_ring" "this" {
+  location = var.key_ring_location
+  name     = "default"
+  project  = google_project.this.project_id
+
+  depends_on = [
+    google_project_service.this
+  ]
+}
+
+# KMS Crypto Key IAM Member Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key_iam_member
+
+resource "google_kms_crypto_key_iam_member" "cis_2_2_logging_sink" {
+  count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
+
+  crypto_key_id = google_kms_crypto_key.cis_2_2_logging_sink[0].id
+  member        = "serviceAccount:${data.google_logging_project_cmek_settings.this.service_account_id}"
+  role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 }
 
 # Logging Metric Resource
@@ -93,8 +143,13 @@ resource "google_logging_project_sink" "cis_2_2_logging_sink" {
 resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
-  bucket_id      = "cis-2-2-logging-sink"
-  location       = "global"
+  bucket_id = "cis-2-2-logging-sink"
+
+  cmek_settings {
+    kms_key_name = google_kms_crypto_key.cis_2_2_logging_sink[0].id
+  }
+
+  location       = var.key_ring_location
   locked         = var.cis_2_2_logging_bucket_locked
   project        = google_project.this.project_id
   retention_days = 30
@@ -144,7 +199,8 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel
 
 resource "google_monitoring_notification_channel" "this" {
-  for_each     = local.monitoring_notification_channels
+  for_each = local.monitoring_notification_channels
+
   description  = each.value.description
   display_name = each.value.display_name
   force_delete = true

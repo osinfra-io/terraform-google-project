@@ -17,6 +17,11 @@ output "cis_2_2_logging_sink_project_id" {
   value       = local.cis_2_2_logging_sink_project_id
 }
 
+output "cis_2_2_logging_sink_service_account" {
+  description = "The CIS 2.2 logging sink benchmark service account"
+  value       = data.google_logging_project_cmek_settings.this.service_account_id
+}
+
 output "project_id" {
   description = "The project ID"
   value       = google_project.this.project_id

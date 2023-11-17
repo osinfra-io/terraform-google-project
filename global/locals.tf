@@ -106,6 +106,7 @@ locals {
   services = toset(concat(
     var.services,
     [
+      "cloudkms.googleapis.com",
       "logging.googleapis.com"
     ]
   ))
