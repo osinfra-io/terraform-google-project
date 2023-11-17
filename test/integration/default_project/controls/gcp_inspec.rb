@@ -1,7 +1,8 @@
 # Chef InSpec
 # https://www.chef.io/inspec
 
-# Since this is the default test, we want to test as much as possible here and not be redundant in the other tests.
+# Since this is the default test, we want to test as much as possible here and not be
+# redundant in the other tests.
 
 cis_2_2_logging_sink_project_id = input('cis_2_2_logging_sink_project_id')
 project_id = input('project_id')
@@ -32,6 +33,29 @@ control 'compute_project_info' do
   # https://docs.chef.io/inspec/resources/google_compute_project_info
 
   describe google_compute_project_info(project: project_id) do
+    it { should exist }
+  end
+end
+
+control 'kms_crypto_key' do
+  title 'KMS Crypto Key'
+
+  # KMS Crypto Key Resource
+  # https://docs.chef.io/inspec/resources/google_kms_crypto_key
+
+  describe google_kms_crypto_key(project: project_id, location: 'us', key_ring_name: 'default',
+                                 name: 'cis-2-2-logging-sink') do
+    it { should !exist }
+  end
+end
+
+control 'kms_crypto_key_ring' do
+  title 'KMS Crypto Key Ring'
+
+  # KMS Crypto Key Ring Resource
+  # https://docs.chef.io/inspec/resources/google_kms_crypto_key_ring
+
+  describe google_kms_crypto_key_ring(project: project_id, location: 'us', name: 'default') do
     it { should exist }
   end
 end

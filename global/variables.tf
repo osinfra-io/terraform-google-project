@@ -20,7 +20,7 @@ variable "cis_2_2_logging_bucket_locked" {
 }
 
 variable "cis_2_2_logging_sink_project_id" {
-  description = "The CIS 2.2 logging sink benchmark project ID"
+  description = "The CIS 2.2 logging sink project ID"
   type        = string
   default     = ""
 }
@@ -44,6 +44,12 @@ variable "environment" {
 variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
+}
+
+variable "key_ring_location" {
+  description = "The location of the key ring to create"
+  type        = string
+  default     = "us"
 }
 
 variable "monthly_budget_amount" {

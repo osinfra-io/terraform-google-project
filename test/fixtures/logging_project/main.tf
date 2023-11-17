@@ -7,7 +7,7 @@
 # - cloudresourcemanager.googleapis.com
 
 provider "google" {
-  billing_project       = "testing-kitchen-tf11-sb"
+  billing_project       = "testing-kitchen-tfd2-sb"
   user_project_override = true
 }
 
@@ -21,7 +21,7 @@ module "test" {
   billing_account               = var.billing_account
   cis_2_2_logging_bucket_locked = false
   cost_center                   = "x000"
-  description                   = "temp"
+  description                   = "test"
   environment                   = "sb"
   folder_id                     = "1069400145815"
 

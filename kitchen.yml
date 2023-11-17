@@ -29,6 +29,8 @@ suites:
           backend: gcp
           controls:
             - compute_project_info
+            - kms_crypto_key
+            - kms_key_ring
             - logging_sync
             - project_iam_binding
             - project_logging_audit_config
@@ -44,4 +46,6 @@ suites:
         - name: inspec_gcp
           backend: gcp
           controls:
+            - kms_crypto_key
+            - kms_crypto_key_iam_binding
             - logging_project_sync
