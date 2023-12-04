@@ -190,9 +190,13 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 
   project = google_project.this.project_id
 
-  user_labels = {
-    "status" = each.value.status
-  }
+  user_labels = merge(
+    {
+      "cost-center" = var.cost_center
+      "status"      = each.value.status
+    },
+    var.labels
+  )
 }
 
 # Monitoring Notification Channel Resource
@@ -211,6 +215,14 @@ resource "google_monitoring_notification_channel" "this" {
 
   project = google_project.this.project_id
   type    = "email"
+
+  user_labels = merge(
+    {
+      "cost-center" = var.cost_center
+      "status"      = each.value.status
+    },
+    var.labels
+  )
 }
 
 # Project Resource
@@ -229,7 +241,7 @@ resource "google_project" "this" {
     {
       cost-center = var.cost_center
     },
-    var.labels,
+    var.labels
   )
 
   name       = local.project_id

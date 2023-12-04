@@ -28,3 +28,8 @@ repos:
       # Always run after terraform_validate
 
       - id: terraform_docs
+
+      - id: infracost_breakdown
+        args:
+          - --args=--config-file=infracost.yml
+          - --args=--sync-usage-file
