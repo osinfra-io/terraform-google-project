@@ -10,18 +10,18 @@
 
 Monthly cost estimates for this module based on these usage values:
 
-- [default project](test/fixtures/default_project/infracost-usage.yml)
-- [logging project](test/fixtures/logging_project/infracost-usage.yml)
+- [default project](test/fixtures/default_project/infracost.yml)
+- [logging project](test/fixtures/logging_project/infracost.yml)
 
 ## Repository Description
 
 Terraform **example** module for a Google Cloud Platform project.
 
-💡 *We do not recommend consuming this module like you might a [public module](https://registry.terraform.io/browse/modules). Its purpose is to be a baseline, something you can fork and potentially maintain on your own and modify to fit your organization's needs. Using public modules vs. writing your own has various [drivers and trade-offs](https://docs.osinfra.io/fundamentals/architecture-decision-records/adr-0003) that your organization should evaluate.*
+💡 *We do not recommend consuming this module like you might a [public module](https://registry.terraform.io/browse/modules). Its purpose is to be a baseline, something you can fork, potentially maintain, and modify to fit your organization's needs. Using public modules vs. writing your own has various [drivers and trade-offs](https://docs.osinfra.io/fundamentals/architecture-decision-records/adr-0003) that your organization should evaluate.*
 
 ## 🔩 Usage
 
-You can check the [test/fixtures](test/fixtures/) directory for example configurations. These fixtures set up the system for testing by providing all the necessary code to initialize it, thus creating good examples to base your configurations on.
+You can check the [test/fixtures](test/fixtures/) directory for example configurations. These fixtures set up the system for testing by providing all the necessary initial code, thus creating good examples to base your configurations on.
 
 Here is an example of a basic configuration:
 
@@ -91,7 +91,7 @@ Links to documentation and other resources required to develop and iterate in th
 
 ### 🔍 Tests
 
-You'll need to be a member of the [platform-contributors](https://groups.google.com/a/osinfra.io/g/platform-contributors) Google Group to run the tests. This group manages access to Testing/Sandbox folder in the resource hierarchy. You can request access to this group by opening an issue [here](https://github.com/osinfra-io/google-cloud-hierarchy/issues/new?assignees=&labels=enhancement&projects=&template=add-update-identity-group.yml&title=Add+or+update+identity+group).
+You'll need to be a member of the [platform-contributors](https://groups.google.com/a/osinfra.io/g/platform-contributors) Google Group to run the tests. This group manages access to the resource hierarchy's `Testing/Sandbox` folder. You can request access to this group by opening an issue [here](https://github.com/osinfra-io/google-cloud-hierarchy/issues/new?assignees=&labels=enhancement&projects=&template=add-update-identity-group.yml&title=Add+or+update+identity+group).
 
 ```none
 bundle install
