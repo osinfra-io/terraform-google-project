@@ -26,7 +26,8 @@ module "test" {
   folder_id                     = "1069400145815"
 
   labels = {
-    key = "value",
+    env  = "sb"
+    team = "testing"
   }
 
   prefix = "kitchen"

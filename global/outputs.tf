@@ -19,7 +19,7 @@ output "cis_2_2_logging_sink_project_id" {
 
 output "cis_2_2_logging_sink_service_account" {
   description = "The CIS 2.2 logging sink benchmark service account"
-  value       = data.google_logging_project_cmek_settings.this.service_account_id
+  value       = length(data.google_logging_project_cmek_settings.this) > 0 ? data.google_logging_project_cmek_settings.this[0].service_account_id : null
 }
 
 output "project_id" {

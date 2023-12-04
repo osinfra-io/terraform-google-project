@@ -1,13 +1,14 @@
-# Infracost Config File
-# https://www.infracost.io/docs/features/config_file
+
+# Infracost Configuration
+# https://www.infracost.io/docs/config_file
+
+# This file is manged by the infracost.yml.tmpl file, do not edit infracost.yml directly.
 
 version: 0.1
-
 projects:
-  - name: "terraform-google-project - Default Project"
-    path: test/fixtures/default_project
-    usage_file: test/fixtures/default_project/infracost-usage.yml
-
-  - name: "terraform-google-project - Logging Project"
-    path: test/fixtures/logging_project
-    usage_file: test/fixtures/logging_project/infracost-usage.yml
+    - path: test/fixtures/default_project
+      name: "default_project"
+      usage_file: test/fixtures/default_project/infracost.yml
+    - path: test/fixtures/logging_project
+      name: "logging_project"
+      usage_file: test/fixtures/logging_project/infracost.yml

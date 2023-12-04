@@ -2,6 +2,8 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/logging_project_cmek_settings
 
 data "google_logging_project_cmek_settings" "this" {
+  count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
+
   project = google_project.this.project_id
 
   depends_on = [
@@ -72,6 +74,7 @@ resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
   key_ring        = google_kms_key_ring.this.id
+  labels          = local.labels
   name            = "cis-2-2-logging-sink"
   rotation_period = "7776000s"
 }
@@ -96,7 +99,7 @@ resource "google_kms_crypto_key_iam_member" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
   crypto_key_id = google_kms_crypto_key.cis_2_2_logging_sink[0].id
-  member        = "serviceAccount:${data.google_logging_project_cmek_settings.this.service_account_id}"
+  member        = "serviceAccount:${data.google_logging_project_cmek_settings.this[0].service_account_id}"
   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 }
 
@@ -190,9 +193,12 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 
   project = google_project.this.project_id
 
-  user_labels = {
-    "status" = each.value.status
-  }
+  user_labels = merge(
+    {
+      status = each.value.status
+    },
+    local.labels
+  )
 }
 
 # Monitoring Notification Channel Resource
@@ -209,8 +215,9 @@ resource "google_monitoring_notification_channel" "this" {
     "email_address" = each.value.email_address
   }
 
-  project = google_project.this.project_id
-  type    = "email"
+  project     = google_project.this.project_id
+  type        = "email"
+  user_labels = local.labels
 }
 
 # Project Resource
@@ -224,16 +231,9 @@ resource "google_project" "this" {
   auto_create_network = false
   billing_account     = var.billing_account
   folder_id           = "folders/${var.folder_id}"
-
-  labels = merge(
-    {
-      cost-center = var.cost_center
-    },
-    var.labels,
-  )
-
-  name       = local.project_id
-  project_id = local.project_id
+  labels              = local.labels
+  name                = local.project_id
+  project_id          = local.project_id
 }
 
 # IAM Audit Config Resource
