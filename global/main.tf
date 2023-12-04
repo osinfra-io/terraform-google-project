@@ -2,6 +2,8 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/logging_project_cmek_settings
 
 data "google_logging_project_cmek_settings" "this" {
+  count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
+
   project = google_project.this.project_id
 
   depends_on = [
@@ -104,7 +106,7 @@ resource "google_kms_crypto_key_iam_member" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
   crypto_key_id = google_kms_crypto_key.cis_2_2_logging_sink[0].id
-  member        = "serviceAccount:${data.google_logging_project_cmek_settings.this.service_account_id}"
+  member        = "serviceAccount:${data.google_logging_project_cmek_settings.this[0].service_account_id}"
   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 }
 
