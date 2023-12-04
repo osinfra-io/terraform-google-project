@@ -73,15 +73,8 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
 resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
-  key_ring = google_kms_key_ring.this.id
-
-  labels = merge(
-    {
-      cost-center = var.cost_center
-    },
-    var.labels
-  )
-
+  key_ring        = google_kms_key_ring.this.id
+  labels          = local.labels
   name            = "cis-2-2-logging-sink"
   rotation_period = "7776000s"
 }
@@ -202,10 +195,9 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 
   user_labels = merge(
     {
-      cost-center = var.cost_center
-      status      = each.value.status
+      status = each.value.status
     },
-    var.labels
+    local.labels
   )
 }
 
@@ -223,15 +215,9 @@ resource "google_monitoring_notification_channel" "this" {
     "email_address" = each.value.email_address
   }
 
-  project = google_project.this.project_id
-  type    = "email"
-
-  user_labels = merge(
-    {
-      cost-center = var.cost_center
-    },
-    var.labels
-  )
+  project     = google_project.this.project_id
+  type        = "email"
+  user_labels = local.labels
 }
 
 # Project Resource
@@ -245,16 +231,9 @@ resource "google_project" "this" {
   auto_create_network = false
   billing_account     = var.billing_account
   folder_id           = "folders/${var.folder_id}"
-
-  labels = merge(
-    {
-      cost-center = var.cost_center
-    },
-    var.labels
-  )
-
-  name       = local.project_id
-  project_id = local.project_id
+  labels              = local.labels
+  name                = local.project_id
+  project_id          = local.project_id
 }
 
 # IAM Audit Config Resource
