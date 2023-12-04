@@ -71,7 +71,15 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
 resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
-  key_ring        = google_kms_key_ring.this.id
+  key_ring = google_kms_key_ring.this.id
+
+  labels = merge(
+    {
+      cost-center = var.cost_center
+    },
+    var.labels
+  )
+
   name            = "cis-2-2-logging-sink"
   rotation_period = "7776000s"
 }
