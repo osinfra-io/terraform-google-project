@@ -200,8 +200,8 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 
   user_labels = merge(
     {
-      "cost-center" = var.cost_center
-      "status"      = each.value.status
+      cost-center = var.cost_center
+      status      = each.value.status
     },
     var.labels
   )
@@ -226,8 +226,7 @@ resource "google_monitoring_notification_channel" "this" {
 
   user_labels = merge(
     {
-      "cost-center" = var.cost_center
-      "status"      = each.value.status
+      cost-center = var.cost_center
     },
     var.labels
   )
