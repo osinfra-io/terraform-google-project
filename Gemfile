@@ -7,4 +7,4 @@ gem 'kitchen-terraform', '7.0.2'
 # These Gems are used by the Shopify/ruby-lsp Visual Studio Code extension
 
 gem 'rubocop', '1.25.1'
-gem 'ruby-lsp', '0.13.2'
+gem 'ruby-lsp', '0.13.3'
