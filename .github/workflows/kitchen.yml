@@ -22,7 +22,7 @@ jobs:
   kitchen_terraform:
     name: "Tests"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@v0.1.8
-    if: github.actor != 'dependabot[bot]'
+    if: github.actor != 'dependabot[bot]' && github.actor != 'osinfra-sa'
 
     with:
       service_account: "plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
