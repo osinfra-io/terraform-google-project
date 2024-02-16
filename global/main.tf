@@ -280,8 +280,9 @@ resource "google_project_iam_member" "cis_2_2" {
 resource "google_project_service" "this" {
   for_each = local.services
 
-  project = google_project.this.project_id
-  service = each.key
+  disable_dependent_services = true
+  project                    = google_project.this.project_id
+  service                    = each.key
 }
 
 # Random ID Resource
