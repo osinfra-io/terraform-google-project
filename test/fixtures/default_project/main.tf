@@ -7,7 +7,7 @@
 # - cloudidentity.googleapis.com
 
 provider "google" {
-  billing_project       = "testing-kitchen-tfd2-sb"
+  billing_project       = "ptl-lz-terraform-tf91-sb"
   user_project_override = true
 }
 
@@ -23,7 +23,7 @@ module "test" {
   # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
   # resource will not be created.
 
-  cis_2_2_logging_sink_project_id = "plt-lz-audit01-tf6e-sb" # This project has been created for tests.
+  cis_2_2_logging_sink_project_id = "plt-lz-audit01-tf92-sb" # This project has been created for tests.
   cost_center                     = "x000"
   description                     = "test"
   environment                     = "sb"

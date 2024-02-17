@@ -7,7 +7,7 @@
 # - cloudresourcemanager.googleapis.com
 
 provider "google" {
-  billing_project       = "testing-kitchen-tfd2-sb"
+  billing_project       = "ptl-lz-terraform-tf91-sb"
   user_project_override = true
 }
 
