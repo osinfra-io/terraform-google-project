@@ -26,8 +26,9 @@ module "test" {
   folder_id                     = "1069400145815"
 
   labels = {
-    env  = "sb"
-    team = "testing"
+    env        = "sb"
+    team       = "testing"
+    repository = "terraform-google-project"
   }
 
   prefix = "kitchen"
