@@ -1,0 +1,13 @@
+# Chef Inspec
+# https://docs.chef.io/inspec/profiles/#inspecyml
+
+name: InSpec GCP (Google Cloud Platform) Resource Pack
+
+# Profile Dependencies
+# https://docs.chef.io/inspec/profiles/#profile-dependencies
+
+# Before a profile can use controls from another profile, the to-be-included profile needs to be specified:
+
+depends:
+  - name: inspec_gcp
+    url: https://github.com/inspec/inspec-gcp/archive/v1.11.93.tar.gz
