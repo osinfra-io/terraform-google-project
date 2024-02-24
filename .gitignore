@@ -36,9 +36,6 @@ plan.out
 # Ignore Infracost directories and files
 .infracost
 
-# Ignore Gemfile.lock file it's used for local development of modules and doesn't provide any value committed.
-Gemfile.lock
-
 # Other Files
 *.log
 *.bak
