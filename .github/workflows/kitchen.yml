@@ -21,7 +21,7 @@ permissions:
 jobs:
   kitchen_terraform:
     name: "Tests"
-    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@v0.1.9
+    uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/kitchen-terraform.yml@v0.2.0
     if: github.actor != 'dependabot[bot]' && github.actor != 'osinfra-sa'
 
     with:
