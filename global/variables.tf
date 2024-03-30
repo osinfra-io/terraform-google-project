@@ -25,11 +25,6 @@ variable "cis_2_2_logging_sink_project_id" {
   default     = ""
 }
 
-variable "cost_center" {
-  description = "The cost center to label the project with"
-  type        = string
-}
-
 variable "description" {
   description = "A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project)"
   type        = string
