@@ -24,15 +24,15 @@ module "test" {
   # resource will not be created.
 
   cis_2_2_logging_sink_project_id = "plt-lz-audit01-tf92-sb" # This project has been created for tests.
-  cost_center                     = "x000"
   description                     = "test"
   environment                     = "sb"
   folder_id                       = "1069400145815"
 
   labels = {
-    env        = "sb"
-    team       = "testing"
-    repository = "terraform-google-project"
+    cost-center = "x000"
+    env         = "sb"
+    team        = "testing"
+    repository  = "terraform-google-project"
   }
 
   prefix = "kitchen"

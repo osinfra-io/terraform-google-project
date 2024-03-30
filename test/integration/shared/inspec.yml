@@ -8,6 +8,9 @@ name: InSpec GCP (Google Cloud Platform) Resource Pack
 
 # Before a profile can use controls from another profile, the to-be-included profile needs to be specified:
 
+# InSpec GCP (Google Cloud Platform) Resource Pack
+# https://github.com/inspec/inspec-gcp
+
 depends:
   - name: inspec_gcp
-    url: https://github.com/inspec/inspec-gcp/archive/v1.11.93.tar.gz
+    url: https://github.com/inspec/inspec-gcp/archive/v1.11.98.tar.gz

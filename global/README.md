@@ -11,8 +11,8 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.6.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.5.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.22.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.6.0 |
 
 ## Modules
 
@@ -47,7 +47,6 @@ No modules.
 | <a name="input_budget_notification_email"></a> [budget\_notification\_email](#input\_budget\_notification\_email) | The email address to send budget notifications to | `string` | `"billing-admins@osinfra.io"` | no |
 | <a name="input_cis_2_2_logging_bucket_locked"></a> [cis\_2\_2\_logging\_bucket\_locked](#input\_cis\_2\_2\_logging\_bucket\_locked) | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
 | <a name="input_cis_2_2_logging_sink_project_id"></a> [cis\_2\_2\_logging\_sink\_project\_id](#input\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink project ID | `string` | `""` | no |
-| <a name="input_cost_center"></a> [cost\_center](#input\_cost\_center) | The cost center to label the project with | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |

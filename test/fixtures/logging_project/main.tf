@@ -20,15 +20,15 @@ module "test" {
 
   billing_account               = var.billing_account
   cis_2_2_logging_bucket_locked = false
-  cost_center                   = "x000"
   description                   = "test"
   environment                   = "sb"
   folder_id                     = "1069400145815"
 
   labels = {
-    env        = "sb"
-    team       = "testing"
-    repository = "terraform-google-project"
+    cost-center = "x000"
+    env         = "sb"
+    team        = "testing"
+    repository  = "terraform-google-project"
   }
 
   prefix = "kitchen"
