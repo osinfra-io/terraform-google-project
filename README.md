@@ -8,10 +8,7 @@
 
 [![infracost](https://img.shields.io/endpoint?label=default_project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/default_project)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8?tab=settings) [![infracost](https://img.shields.io/endpoint?label=logging_project&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47/logging_project)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8?tab=settings)
 
-Monthly cost estimates for this module based on these usage values:
-
-- [default project](test/fixtures/default_project/infracost.yml)
-- [logging project](test/fixtures/logging_project/infracost.yml)
+💵 Monthly estimates based on Infracost baseline costs.
 
 ## Repository Description
 
@@ -24,31 +21,6 @@ Terraform **example** module for a Google Cloud Platform project.
 
 > [!TIP]
 > You can check the [test/fixtures](test/fixtures/) directory for example configurations. These fixtures set up the system for testing by providing all the necessary initial code, thus creating good examples to base your configurations.
-
-Here is an example of a basic configuration:
-
-```hcl
-module "project" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.0.0"
-
-  billing_account                 = "555-555-555-555"
-  cis_2_2_logging_sink_project_id = "example-logging-project"
-  cost_center                     = "x000"
-  description                     = "example"
-  environment                     = "sb"
-  folder_id                       = "1111111111111"
-
-  labels = {
-    key = "value",
-  }
-
-  prefix = "team"
-
-  services = [
-    "compute.googleapis.com"
-  ]
-}
-```
 
 ### Project Names
 
