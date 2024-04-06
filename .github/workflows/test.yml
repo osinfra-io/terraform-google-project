@@ -15,12 +15,15 @@ permissions:
 jobs:
   default:
     name: "Default"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/test.yml@v0.2.2
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/test.yml@add-args
     if: github.actor != 'dependabot[bot]'
     with:
       service_account: "plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       workload_identity_provider: "projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc"
+
+    secrets:
+      terraform_test_secret_args: -var="billing_account=${{ secrets.BILLING_ACCOUNT }}
 
   # This test fails right now due to #80
 
