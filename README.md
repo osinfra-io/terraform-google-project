@@ -2,7 +2,7 @@
 
 **[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
 
-[![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
+[![Terraform Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/test.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/test.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
 
 **[Infracost](https://www.infracost.io):**
 

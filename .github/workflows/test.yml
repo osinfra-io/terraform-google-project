@@ -22,9 +22,6 @@ jobs:
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       workload_identity_provider: "projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc"
 
-    secrets:
-      terraform_test_secret_args: -var="billing_account=${{ secrets.BILLING_ACCOUNT }}"
-
   # This test fails right now due to #80
 
   # logging:
