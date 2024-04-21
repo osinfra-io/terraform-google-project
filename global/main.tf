@@ -120,9 +120,6 @@ resource "google_logging_metric" "cis_logging_metrics" {
 # gcloud alpha logging settings update --organization=${ORGANIZATION_ID} --disable-default-sink
 # gcloud alpha logging settings describe --organization=${ORGANIZATION_ID}
 
-# ToDo: We may want to restore the _Default sync filter
-# https://cloud.google.com/logging/docs/export/configure_export_v2#restore_the_default_sink_filter
-
 # CIS 2.2 Ensure that sinks are configured for all log entries.
 # It is recommended to create a sink that will export copies of all the log entries.
 
@@ -130,7 +127,20 @@ resource "google_logging_metric" "cis_logging_metrics" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink
 
 resource "google_logging_project_sink" "cis_2_2_logging_sink" {
-  destination            = local.cis_2_2_logging_sink_storage_bucket
+  destination = local.cis_2_2_logging_sink_storage_bucket
+
+  exclusions {
+    name = "default"
+    filter = join(" AND ", [
+      "NOT LOG_ID(\"cloudaudit.googleapis.com/activity\")",
+      "NOT LOG_ID(\"externalaudit.googleapis.com/activity\")",
+      "NOT LOG_ID(\"cloudaudit.googleapis.com/system_event\")",
+      "NOT LOG_ID(\"externalaudit.googleapis.com/system_event\")",
+      "NOT LOG_ID(\"cloudaudit.googleapis.com/access_transparency\")",
+      "NOT LOG_ID(\"externalaudit.googleapis.com/access_transparency\")"
+    ])
+  }
+
   name                   = "cis-2-2-logging-sink"
   project                = google_project.this.project_id
   unique_writer_identity = true

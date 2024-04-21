@@ -13,23 +13,12 @@ permissions:
   id-token: write
 
 jobs:
-  default:
-    name: "Default"
+  tests:
+    name: Tests
     uses: osinfra-io/github-terraform-called-workflows/.github/workflows/test.yml@v0.2.3
     if: github.actor != 'dependabot[bot]'
     with:
-      service_account: "plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
+      service_account: plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      workload_identity_provider: "projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc"
-
-  # This test fails right now due to #80
-
-  # logging:
-  #   name: "Logging"
-  #   uses: osinfra-io/github-terraform-called-workflows/.github/workflows/test.yml@v0.2.3
-  #   if: github.actor != 'dependabot[bot]'
-  #   with:
-  #     service_account: "plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com"
-  #     terraform_version: ${{ vars.TERRAFORM_VERSION }}
-  #     working_directory: "logging"
-  #     workload_identity_provider: "projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc"
+      working_directory: ./
+      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
