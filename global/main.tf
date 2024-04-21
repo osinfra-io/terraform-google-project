@@ -20,6 +20,7 @@ resource "google_billing_budget" "project" {
       google_monitoring_notification_channel.this["budget"].name
     ]
   }
+
   amount {
     specified_amount {
       currency_code = "USD"
@@ -183,10 +184,12 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
         cross_series_reducer = "REDUCE_COUNT"
         per_series_aligner   = "ALIGN_DELTA"
       }
+
       duration   = "0s"
       comparison = "COMPARISON_GT"
       filter     = "metric.type=\"logging.googleapis.com/user/${each.key}\" AND resource.type=\"${each.value.resource_type}\""
     }
+
     display_name = google_logging_metric.cis_logging_metrics[each.key].name
   }
 
@@ -264,6 +267,7 @@ resource "google_project_iam_audit_config" "cis_2_1" {
         "DATA_WRITE"
       ]
     )
+
     content {
       log_type = audit_log_config.key
     }
