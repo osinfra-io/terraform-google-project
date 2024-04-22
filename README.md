@@ -67,22 +67,6 @@ Links to documentation and other resources required to develop and iterate in th
 You'll need to be a member of the [platform-contributors](https://groups.google.com/a/osinfra.io/g/platform-contributors) Google Group to run the tests. This group manages access to the resource hierarchy's `Testing/Sandbox` folder. You can request access to this group by opening an issue [here](https://github.com/osinfra-io/google-cloud-hierarchy/issues/new?assignees=&labels=enhancement&projects=&template=add-update-identity-group.yml&title=Add+or+update+identity+group).
 
 ```none
-cd fixtures/default
-```
-
-```none
-terraform init
-```
-
-```none
-terraform test
-```
-
-```none
-cd fixtures/logging
-```
-
-```none
 terraform init
 ```
 
