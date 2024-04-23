@@ -20,5 +20,4 @@ jobs:
     with:
       service_account: plt-lz-testing-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      working_directory: ./
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
