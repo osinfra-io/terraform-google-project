@@ -18,8 +18,6 @@ module "test" {
 
   source = "../../../global"
 
-  billing_account = var.billing_account
-
   # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
   # resource will not be created.
 

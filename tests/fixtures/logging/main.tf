@@ -18,7 +18,6 @@ module "test" {
 
   source = "../../../global"
 
-  billing_account               = var.billing_account
   cis_2_2_logging_bucket_locked = false
   description                   = "test"
   environment                   = "sb"
