@@ -72,12 +72,28 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key
 
 resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
+
+  # See comment below for why we can't use the lifecycle block to prevent destroy on this resource.
+  # checkov:skip=CKV_GCP_82
+
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
   key_ring        = google_kms_key_ring.this.id
   labels          = var.labels
   name            = "cis-2-2-logging-sink"
   rotation_period = "7776000s"
+
+  # We can't use the lifecycle block to prevent destroy on this resource for testing purposes.
+
+  # CryptoKeys cannot be deleted from Google Cloud Platform. Destroying a Terraform-managed CryptoKey will
+  # remove it from state and delete all CryptoKeyVersions, rendering the key unusable, but will not delete
+  # the resource from the project. When Terraform destroys these keys, any data previously encrypted with
+  # these keys will be irrecoverable. For this reason, it is strongly recommended that you add lifecycle
+  # hooks to the resource to prevent accidental destruction.
+
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 
 # KMS Key Ring Resource
