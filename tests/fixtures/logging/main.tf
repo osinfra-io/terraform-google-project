@@ -16,7 +16,7 @@ module "test" {
   # This module will be consumed using the source address of the github repo and not the "../../../" used in this test.
   # source = "git@github.com:osinfra-io/terraform-google-project?ref=v0.0.0"
 
-  source = "../../../global"
+  source = "../../../"
 
   cis_2_2_logging_bucket_locked = false
   description                   = "test"

@@ -80,31 +80,61 @@ terraform test
 > A child module automatically inherits default (un-aliased) provider configurations from its parent. The provider versions below are informational only and do **not** need to align with the provider configurations from its parent.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
+### Providers
 
-No requirements.
+| Name | Version |
+|------|---------|
+| google | 5.38.0 |
+| random | 3.6.2 |
 
-## Providers
+### Resources
 
-No providers.
+| Name | Type |
+|------|------|
+| [google_billing_budget.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) | resource |
+| [google_compute_project_metadata_item.enable_oslogin](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata_item) | resource |
+| [google_kms_crypto_key.cis_2_2_logging_sink](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key) | resource |
+| [google_kms_crypto_key_iam_member.cis_2_2_logging_sink](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key_iam_member) | resource |
+| [google_kms_key_ring.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring) | resource |
+| [google_logging_metric.cis_logging_metrics](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_metric) | resource |
+| [google_logging_project_bucket_config.cis_2_2_logging_sink](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_bucket_config) | resource |
+| [google_logging_project_sink.cis_2_2_logging_sink](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink) | resource |
+| [google_monitoring_alert_policy.cis_logging_metrics](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy) | resource |
+| [google_monitoring_notification_channel.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel) | resource |
+| [google_project.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project) | resource |
+| [google_project_iam_audit_config.cis_2_1](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_audit_config) | resource |
+| [google_project_iam_member.cis_2_2](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
+| [google_project_service.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
+| [random_id.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
+| [google_logging_project_cmek_settings.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/logging_project_cmek_settings) | data source |
 
-## Modules
+### Inputs
 
-No modules.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
+| budget\_notification\_email | The email address to send budget notifications to | `string` | `"billing-admins@osinfra.io"` | no |
+| cis\_2\_2\_logging\_bucket\_locked | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
+| cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink project ID | `string` | `""` | no |
+| description | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
+| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| key\_ring\_location | The location of the key ring to create | `string` | `"us"` | no |
+| labels | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |
+| monthly\_budget\_amount | The monthly budget amount in USD to set for the project | `number` | `5` | no |
+| prefix | The team prefix for example: `ops` (Operations), `sec` (Security) | `string` | `"test"` | no |
+| random\_project\_id | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
+| security\_notification\_email | The email address to send security notifications to | `string` | `"security@osinfra.io"` | no |
+| services | A list of services to enable in the project | `list(string)` | `[]` | no |
 
-## Resources
+### Outputs
 
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
+| Name | Description |
+|------|-------------|
+| cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID |
+| cis\_2\_2\_logging\_sink\_service\_account | The CIS 2.2 logging sink benchmark service account |
+| cis\_logging\_metrics\_alert\_policy\_names | The CIS logging metrics alert policy names, we need these to test the resources with inspec |
+| project\_id | The project ID |
+| project\_number | The project number |
+| unique\_writer\_identity | The unique identity associated with this sink |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
-## 📓 Terraform Regional Documentation
-
-- [regional](regional/README.md)

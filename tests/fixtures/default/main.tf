@@ -16,7 +16,7 @@ module "test" {
   # This module will be consumed using the source address of the github repo and not the "../../../" used in this test.
   # source = "github.com/osinfra-io/terraform-google-project?ref=v0.0.0"
 
-  source = "../../../global"
+  source = "../../../"
 
   # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
   # resource will not be created.
