@@ -80,22 +80,14 @@ terraform test
 > A child module automatically inherits default (un-aliased) provider configurations from its parent. The provider versions below are informational only and do **not** need to align with the provider configurations from its parent.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
-
-No requirements.
-
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.38.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
+| google | 5.38.0 |
+| random | 3.6.2 |
 
-## Modules
-
-No modules.
-
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -116,33 +108,33 @@ No modules.
 | [random_id.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [google_logging_project_cmek_settings.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/logging_project_cmek_settings) | data source |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
-| <a name="input_budget_notification_email"></a> [budget\_notification\_email](#input\_budget\_notification\_email) | The email address to send budget notifications to | `string` | `"billing-admins@osinfra.io"` | no |
-| <a name="input_cis_2_2_logging_bucket_locked"></a> [cis\_2\_2\_logging\_bucket\_locked](#input\_cis\_2\_2\_logging\_bucket\_locked) | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
-| <a name="input_cis_2_2_logging_sink_project_id"></a> [cis\_2\_2\_logging\_sink\_project\_id](#input\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink project ID | `string` | `""` | no |
-| <a name="input_description"></a> [description](#input\_description) | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
-| <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
-| <a name="input_key_ring_location"></a> [key\_ring\_location](#input\_key\_ring\_location) | The location of the key ring to create | `string` | `"us"` | no |
-| <a name="input_labels"></a> [labels](#input\_labels) | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |
-| <a name="input_monthly_budget_amount"></a> [monthly\_budget\_amount](#input\_monthly\_budget\_amount) | The monthly budget amount in USD to set for the project | `number` | `5` | no |
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | The team prefix for example: `ops` (Operations), `sec` (Security) | `string` | `"test"` | no |
-| <a name="input_random_project_id"></a> [random\_project\_id](#input\_random\_project\_id) | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
-| <a name="input_security_notification_email"></a> [security\_notification\_email](#input\_security\_notification\_email) | The email address to send security notifications to | `string` | `"security@osinfra.io"` | no |
-| <a name="input_services"></a> [services](#input\_services) | A list of services to enable in the project | `list(string)` | `[]` | no |
+| billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
+| budget\_notification\_email | The email address to send budget notifications to | `string` | `"billing-admins@osinfra.io"` | no |
+| cis\_2\_2\_logging\_bucket\_locked | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
+| cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink project ID | `string` | `""` | no |
+| description | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
+| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| key\_ring\_location | The location of the key ring to create | `string` | `"us"` | no |
+| labels | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |
+| monthly\_budget\_amount | The monthly budget amount in USD to set for the project | `number` | `5` | no |
+| prefix | The team prefix for example: `ops` (Operations), `sec` (Security) | `string` | `"test"` | no |
+| random\_project\_id | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
+| security\_notification\_email | The email address to send security notifications to | `string` | `"security@osinfra.io"` | no |
+| services | A list of services to enable in the project | `list(string)` | `[]` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cis_2_2_logging_sink_project_id"></a> [cis\_2\_2\_logging\_sink\_project\_id](#output\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink benchmark project ID |
-| <a name="output_cis_2_2_logging_sink_service_account"></a> [cis\_2\_2\_logging\_sink\_service\_account](#output\_cis\_2\_2\_logging\_sink\_service\_account) | The CIS 2.2 logging sink benchmark service account |
-| <a name="output_cis_logging_metrics_alert_policy_names"></a> [cis\_logging\_metrics\_alert\_policy\_names](#output\_cis\_logging\_metrics\_alert\_policy\_names) | The CIS logging metrics alert policy names, we need these to test the resources with inspec |
-| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
-| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
-| <a name="output_unique_writer_identity"></a> [unique\_writer\_identity](#output\_unique\_writer\_identity) | The unique identity associated with this sink |
+| cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID |
+| cis\_2\_2\_logging\_sink\_service\_account | The CIS 2.2 logging sink benchmark service account |
+| cis\_logging\_metrics\_alert\_policy\_names | The CIS logging metrics alert policy names, we need these to test the resources with inspec |
+| project\_id | The project ID |
+| project\_number | The project number |
+| unique\_writer\_identity | The unique identity associated with this sink |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
