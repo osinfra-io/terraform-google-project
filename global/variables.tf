@@ -78,7 +78,7 @@ variable "services" {
 }
 
 variable "labels" {
-  description = "A set of key/value label pairs to assign to the project"
+  description = "A map of key/value pairs to assign to the resources being created"
   type        = map(string)
   default     = {}
 }

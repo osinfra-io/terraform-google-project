@@ -51,7 +51,7 @@ No modules.
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
 | <a name="input_key_ring_location"></a> [key\_ring\_location](#input\_key\_ring\_location) | The location of the key ring to create | `string` | `"us"` | no |
-| <a name="input_labels"></a> [labels](#input\_labels) | A set of key/value label pairs to assign to the project | `map(string)` | `{}` | no |
+| <a name="input_labels"></a> [labels](#input\_labels) | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |
 | <a name="input_monthly_budget_amount"></a> [monthly\_budget\_amount](#input\_monthly\_budget\_amount) | The monthly budget amount in USD to set for the project | `number` | `5` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The team prefix for example: `ops` (Operations), `sec` (Security) | `string` | `"test"` | no |
 | <a name="input_random_project_id"></a> [random\_project\_id](#input\_random\_project\_id) | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
