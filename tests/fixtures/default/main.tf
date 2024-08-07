@@ -9,24 +9,14 @@ terraform {
 module "test" {
   source = "../../../"
 
-  # Since we are defining the CIS 2.2 logging sink project in this test, the google_logging_project_bucket_config
-  # resource will not be created.
-
-  cis_2_2_logging_sink_project_id = "mock"
+  cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
   description                     = "mock"
-  environment                     = "mock"
+  environment                     = var.environment
   folder_id                       = "0000000000000"
-
-  labels = {
-    cost-center = "x000"
-    env         = "mock"
-    team        = "mock"
-    repository  = "mock"
-  }
-
-  prefix = "mock"
+  labels                          = local.labels
+  prefix                          = "mock"
 
   services = [
-    "compute.googleapis.com"
+    "mock.googleapis.com"
   ]
 }
