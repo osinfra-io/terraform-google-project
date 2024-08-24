@@ -74,7 +74,7 @@ locals {
   # https://www.terraform.io/language/expressions/conditionals
 
   cis_2_2_logging_sink_project_id     = var.cis_2_2_logging_sink_project_id == "" ? google_project.this.project_id : var.cis_2_2_logging_sink_project_id
-  cis_2_2_logging_sink_storage_bucket = var.cis_2_2_logging_sink_project_id == "" ? "logging.googleapis.com/${google_logging_project_bucket_config.cis_2_2_logging_sink[0].name}" : "logging.googleapis.com/projects/${var.cis_2_2_logging_sink_project_id}/locations/global/buckets/cis-2-2-logging-sink"
+  cis_2_2_logging_sink_storage_bucket = var.cis_2_2_logging_sink_project_id == "" ? "logging.googleapis.com/${google_logging_project_bucket_config.cis_2_2_logging_sink[0].name}" : "logging.googleapis.com/projects/${var.cis_2_2_logging_sink_project_id}/locations/us/buckets/cis-2-2-logging-sink"
 
   monitoring_notification_channels = {
     "budget" = {

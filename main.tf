@@ -144,20 +144,7 @@ resource "google_logging_metric" "cis_logging_metrics" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink
 
 resource "google_logging_project_sink" "cis_2_2_logging_sink" {
-  destination = local.cis_2_2_logging_sink_storage_bucket
-
-  exclusions {
-    name = "default"
-    filter = join(" AND ", [
-      "NOT LOG_ID(\"cloudaudit.googleapis.com/activity\")",
-      "NOT LOG_ID(\"externalaudit.googleapis.com/activity\")",
-      "NOT LOG_ID(\"cloudaudit.googleapis.com/system_event\")",
-      "NOT LOG_ID(\"externalaudit.googleapis.com/system_event\")",
-      "NOT LOG_ID(\"cloudaudit.googleapis.com/access_transparency\")",
-      "NOT LOG_ID(\"externalaudit.googleapis.com/access_transparency\")"
-    ])
-  }
-
+  destination            = local.cis_2_2_logging_sink_storage_bucket
   name                   = "cis-2-2-logging-sink"
   project                = google_project.this.project_id
   unique_writer_identity = true
