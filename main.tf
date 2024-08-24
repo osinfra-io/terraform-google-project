@@ -146,17 +146,14 @@ resource "google_logging_metric" "cis_logging_metrics" {
 resource "google_logging_project_sink" "cis_2_2_logging_sink" {
   destination = local.cis_2_2_logging_sink_storage_bucket
 
-  exclusions {
-    name = "default"
-    filter = join(" AND ", [
-      "NOT LOG_ID(\"cloudaudit.googleapis.com/activity\")",
-      "NOT LOG_ID(\"externalaudit.googleapis.com/activity\")",
-      "NOT LOG_ID(\"cloudaudit.googleapis.com/system_event\")",
-      "NOT LOG_ID(\"externalaudit.googleapis.com/system_event\")",
-      "NOT LOG_ID(\"cloudaudit.googleapis.com/access_transparency\")",
-      "NOT LOG_ID(\"externalaudit.googleapis.com/access_transparency\")"
-    ])
-  }
+  filter = join(" AND ", [
+    "NOT LOG_ID(\"cloudaudit.googleapis.com/access_transparency\")",
+    "NOT LOG_ID(\"cloudaudit.googleapis.com/activity\")",
+    "NOT LOG_ID(\"cloudaudit.googleapis.com/system_event\")",
+    "NOT LOG_ID(\"externalaudit.googleapis.com/access_transparency\")",
+    "NOT LOG_ID(\"externalaudit.googleapis.com/activity\")",
+    "NOT LOG_ID(\"externalaudit.googleapis.com/system_event\")"
+  ])
 
   name                   = "cis-2-2-logging-sink"
   project                = google_project.this.project_id
