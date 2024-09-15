@@ -22,12 +22,12 @@ output "cis_2_2_logging_sink_service_account" {
   value       = length(data.google_logging_project_cmek_settings.this) > 0 ? data.google_logging_project_cmek_settings.this[0].service_account_id : null
 }
 
-output "project_id" {
+output "id" {
   description = "The project ID"
   value       = google_project.this.project_id
 }
 
-output "project_number" {
+output "number" {
   description = "The project number"
   value       = google_project.this.number
 }

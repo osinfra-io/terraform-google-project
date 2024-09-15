@@ -47,6 +47,12 @@ variable "key_ring_location" {
   default     = "us"
 }
 
+variable "labels" {
+  description = "A map of key/value pairs to assign to the resources being created"
+  type        = map(string)
+  default     = {}
+}
+
 variable "monthly_budget_amount" {
   description = "The monthly budget amount in USD to set for the project"
   type        = number
@@ -75,10 +81,4 @@ variable "services" {
   description = "A list of services to enable in the project"
   type        = list(string)
   default     = []
-}
-
-variable "labels" {
-  description = "A map of key/value pairs to assign to the resources being created"
-  type        = map(string)
-  default     = {}
 }
