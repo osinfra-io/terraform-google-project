@@ -79,13 +79,13 @@ terraform test
 
 > A child module automatically inherits default (un-aliased) provider configurations from its parent. The provider versions below are informational only and do **not** need to align with the provider configurations from its parent.
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ### Providers
 
 | Name | Version |
 |------|---------|
-| google | 5.40.0 |
-| random | 3.6.2 |
+| google | 6.2.0 |
+| random | 3.6.3 |
 
 ### Resources
 
@@ -134,7 +134,7 @@ terraform test
 | cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID |
 | cis\_2\_2\_logging\_sink\_service\_account | The CIS 2.2 logging sink benchmark service account |
 | cis\_logging\_metrics\_alert\_policy\_names | The CIS logging metrics alert policy names, we need these to test the resources with inspec |
-| project\_id | The project ID |
-| project\_number | The project number |
+| id | The project ID |
+| number | The project number |
 | unique\_writer\_identity | The unique identity associated with this sink |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
