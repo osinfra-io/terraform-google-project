@@ -246,6 +246,7 @@ resource "google_project" "this" {
 
   auto_create_network = false
   billing_account     = var.billing_account
+  deletion_policy     = var.deletion_policy
   folder_id           = "folders/${var.folder_id}"
   labels              = var.labels
   name                = local.project_id

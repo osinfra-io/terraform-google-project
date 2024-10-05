@@ -25,6 +25,12 @@ variable "cis_2_2_logging_sink_project_id" {
   default     = ""
 }
 
+variable "deletion_policy" {
+  description = "The deletion policy for the project"
+  type        = string
+  default     = "PREVENT"
+}
+
 variable "description" {
   description = "A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project)"
   type        = string
