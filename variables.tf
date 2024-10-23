@@ -25,6 +25,16 @@ variable "cis_2_2_logging_sink_project_id" {
   default     = ""
 }
 
+variable "cost_center" {
+  description = "The cost center the resources will be billed to, must start with 'x' followed by three or four digits"
+  type        = string
+}
+
+variable "data_classification" {
+  description = "The data classification of the resources can be public, internal, or confidential"
+  type        = string
+}
+
 variable "deletion_policy" {
   description = "The deletion policy for the project"
   type        = string
@@ -36,10 +46,9 @@ variable "description" {
   type        = string
 }
 
-variable "environment" {
-  description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
+variable "email" {
+  description = "The email address of the team responsible for the resources"
   type        = string
-  default     = "sb"
 }
 
 variable "folder_id" {
@@ -66,15 +75,19 @@ variable "monthly_budget_amount" {
 }
 
 variable "prefix" {
-  description = "The team prefix for example: `ops` (Operations), `sec` (Security)"
+  description = "The team prefix for example: `ct` (Customer Trust), `plt` (Platform), `sec` (Security)"
   type        = string
-  default     = "test"
 }
 
 variable "random_project_id" {
   description = "If true, a random hex value with a prefix of tf will be added to the `project_id`"
   type        = bool
   default     = true
+}
+
+variable "repository" {
+  description = "The repository name (should be in the format 'owner/repo') containing only lowercase alphanumeric characters or hyphens"
+  type        = string
 }
 
 variable "security_notification_email" {
@@ -87,4 +100,9 @@ variable "services" {
   description = "A list of services to enable in the project"
   type        = list(string)
   default     = []
+}
+
+variable "team" {
+  description = "The team name (should contain only lowercase alphanumeric characters and hyphens)"
+  type        = string
 }

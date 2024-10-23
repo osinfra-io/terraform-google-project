@@ -10,9 +10,17 @@ module "test" {
   source = "../../../"
 
   cis_2_2_logging_bucket_locked = false
+  cost_center                   = var.cost_center
+  data_classification           = var.data_classification
   description                   = "mock"
-  environment                   = var.environment
+  email                         = var.email
   folder_id                     = "0000000000000"
-  labels                        = local.labels
-  prefix                        = "mock"
+
+  labels = {
+    mock-key = "mock-value"
+  }
+
+  prefix     = "mock"
+  repository = var.repository
+  team       = var.team
 }
