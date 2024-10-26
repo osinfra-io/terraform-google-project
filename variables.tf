@@ -85,7 +85,12 @@ variable "monthly_budget_amount" {
 }
 
 variable "prefix" {
-  description = "The team prefix for example: `ct` (Customer Trust), `plt` (Platform), `sec` (Security)"
+  description = <<-EOT
+    The team prefix. Examples:
+    - ct (Customer Trust)
+    - plt (Platform)
+    - sec (Security)
+    EOT
   type        = string
 }
 

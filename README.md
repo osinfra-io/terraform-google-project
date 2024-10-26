@@ -133,7 +133,7 @@ terraform test
 | key\_ring\_location | The location of the key ring to create | `string` | `"us"` | no |
 | labels | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |
 | monthly\_budget\_amount | The monthly budget amount in USD to set for the project | `number` | `5` | no |
-| prefix | The team prefix for example: `ct` (Customer Trust), `plt` (Platform), `sec` (Security) | `string` | n/a | yes |
+| prefix | The team prefix. Examples: - ct (Customer Trust) - plt (Platform) - sec (Security) | `string` | n/a | yes |
 | random\_project\_id | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
 | security\_notification\_email | The email address to send security notifications to | `string` | `"security@osinfra.io"` | no |
 | services | A list of services to enable in the project | `list(string)` | `[]` | no |
