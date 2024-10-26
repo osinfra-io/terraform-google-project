@@ -37,7 +37,13 @@ variable "description" {
 }
 
 variable "folder_id" {
-  description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
+  description = "The numeric ID of the folder this project should be created under"
+  type        = string
+  validation {
+    condition     = can(regex("^[0-9]+$", var.folder_id))
+    error_message = "The folder_id value must be numeric."
+  }
+}
   type        = string
 }
 
