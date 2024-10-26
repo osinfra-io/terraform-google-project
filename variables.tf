@@ -44,8 +44,6 @@ variable "folder_id" {
     error_message = "The folder_id value must be numeric."
   }
 }
-  type        = string
-}
 
 variable "helpers_cost_center" {
   description = "The cost center the resources will be billed to, must start with 'x' followed by three or four digits"

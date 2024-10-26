@@ -124,7 +124,7 @@ terraform test
 | cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink project ID | `string` | `""` | no |
 | deletion\_policy | The deletion policy for the project | `string` | `"PREVENT"` | no |
 | description | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
-| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| folder\_id | The numeric ID of the folder this project should be created under | `string` | n/a | yes |
 | helpers\_cost\_center | The cost center the resources will be billed to, must start with 'x' followed by three or four digits | `string` | n/a | yes |
 | helpers\_data\_classification | The data classification of the resources can be public, internal, or confidential | `string` | n/a | yes |
 | helpers\_email | The email address of the team responsible for the resources | `string` | n/a | yes |
