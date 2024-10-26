@@ -1,22 +1,22 @@
 # Terraform Input Variables
 # https://www.terraform.io/language/values/variables
 
-variable "cost_center" {
+variable "helpers_cost_center" {
   type = string
 }
 
-variable "data_classification" {
+variable "helpers_data_classification" {
   type = string
 }
 
-variable "email" {
+variable "helpers_email" {
   type = string
 }
 
-variable "repository" {
+variable "helpers_repository" {
   type = string
 }
 
-variable "team" {
+variable "helpers_team" {
   type = string
 }

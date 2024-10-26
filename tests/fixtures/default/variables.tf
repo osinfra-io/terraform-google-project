@@ -5,22 +5,22 @@ variable "cis_2_2_logging_sink_project_id" {
   type = string
 }
 
-variable "cost_center" {
+variable "helpers_cost_center" {
   type = string
 }
 
-variable "data_classification" {
+variable "helpers_data_classification" {
   type = string
 }
 
-variable "email" {
+variable "helpers_email" {
   type = string
 }
 
-variable "repository" {
+variable "helpers_repository" {
   type = string
 }
 
-variable "team" {
+variable "helpers_team" {
   type = string
 }

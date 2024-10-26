@@ -91,7 +91,7 @@ terraform test
 
 | Name | Source | Version |
 |------|--------|---------|
-| core | github.com/osinfra-io/terraform-core-helpers | main |
+| helpers | github.com/osinfra-io/terraform-core-helpers | v0.1.0 |
 
 ### Resources
 
@@ -122,21 +122,21 @@ terraform test
 | budget\_notification\_email | The email address to send budget notifications to | `string` | `"billing-admins@osinfra.io"` | no |
 | cis\_2\_2\_logging\_bucket\_locked | Boolean to enable CIS 2.2 logging bucket lock | `bool` | `true` | no |
 | cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink project ID | `string` | `""` | no |
-| cost\_center | The cost center the resources will be billed to, must start with 'x' followed by three or four digits | `string` | n/a | yes |
-| data\_classification | The data classification of the resources can be public, internal, or confidential | `string` | n/a | yes |
 | deletion\_policy | The deletion policy for the project | `string` | `"PREVENT"` | no |
 | description | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
-| email | The email address of the team responsible for the resources | `string` | n/a | yes |
 | folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| helpers\_cost\_center | The cost center the resources will be billed to, must start with 'x' followed by three or four digits | `string` | n/a | yes |
+| helpers\_data\_classification | The data classification of the resources can be public, internal, or confidential | `string` | n/a | yes |
+| helpers\_email | The email address of the team responsible for the resources | `string` | n/a | yes |
+| helpers\_repository | The repository name (should be in the format 'owner/repo' containing only lowercase alphanumeric characters or hyphens) | `string` | n/a | yes |
+| helpers\_team | The team name (should contain only lowercase alphanumeric characters and hyphens) | `string` | n/a | yes |
 | key\_ring\_location | The location of the key ring to create | `string` | `"us"` | no |
 | labels | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |
 | monthly\_budget\_amount | The monthly budget amount in USD to set for the project | `number` | `5` | no |
 | prefix | The team prefix for example: `ct` (Customer Trust), `plt` (Platform), `sec` (Security) | `string` | n/a | yes |
 | random\_project\_id | If true, a random hex value with a prefix of tf will be added to the `project_id` | `bool` | `true` | no |
-| repository | The repository name (should be in the format 'owner/repo') containing only lowercase alphanumeric characters or hyphens | `string` | n/a | yes |
 | security\_notification\_email | The email address to send security notifications to | `string` | `"security@osinfra.io"` | no |
 | services | A list of services to enable in the project | `list(string)` | `[]` | no |
-| team | The team name (should contain only lowercase alphanumeric characters and hyphens) | `string` | n/a | yes |
 
 ### Outputs
 
@@ -144,7 +144,7 @@ terraform test
 |------|-------------|
 | cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID |
 | cis\_2\_2\_logging\_sink\_service\_account | The CIS 2.2 logging sink benchmark service account |
-| cis\_logging\_metrics\_alert\_policy\_names | The CIS logging metrics alert policy names, we need these to test the resources with inspec |
+| cis\_logging\_metrics\_alert\_policy\_names | The CIS logging metrics alert policy names |
 | id | The project ID |
 | number | The project number |
 | unique\_writer\_identity | The unique identity associated with this sink |

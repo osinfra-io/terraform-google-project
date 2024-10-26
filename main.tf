@@ -1,14 +1,14 @@
 # Terraform Core Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-core-helpers
 
-module "core" {
-  source = "github.com/osinfra-io/terraform-core-helpers?ref=main"
+module "helpers" {
+  source = "github.com/osinfra-io/terraform-core-helpers?ref=v0.1.0"
 
-  cost_center         = var.cost_center
-  data_classification = var.data_classification
-  email               = var.email
-  repository          = var.repository
-  team                = var.team
+  cost_center         = var.helpers_cost_center
+  data_classification = var.helpers_data_classification
+  email               = var.helpers_email
+  repository          = var.helpers_repository
+  team                = var.helpers_team
 }
 
 # Logging Project CMEK Settings Data Source
@@ -92,7 +92,7 @@ resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
 
   key_ring        = google_kms_key_ring.this.id
-  labels          = merge(module.core.labels, var.labels)
+  labels          = merge(module.helpers.labels, var.labels)
   name            = "cis-2-2-logging-sink"
   rotation_period = "7776000s"
 

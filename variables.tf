@@ -25,16 +25,6 @@ variable "cis_2_2_logging_sink_project_id" {
   default     = ""
 }
 
-variable "cost_center" {
-  description = "The cost center the resources will be billed to, must start with 'x' followed by three or four digits"
-  type        = string
-}
-
-variable "data_classification" {
-  description = "The data classification of the resources can be public, internal, or confidential"
-  type        = string
-}
-
 variable "deletion_policy" {
   description = "The deletion policy for the project"
   type        = string
@@ -46,13 +36,33 @@ variable "description" {
   type        = string
 }
 
-variable "email" {
+variable "folder_id" {
+  description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
+  type        = string
+}
+
+variable "helpers_cost_center" {
+  description = "The cost center the resources will be billed to, must start with 'x' followed by three or four digits"
+  type        = string
+}
+
+variable "helpers_data_classification" {
+  description = "The data classification of the resources can be public, internal, or confidential"
+  type        = string
+}
+
+variable "helpers_email" {
   description = "The email address of the team responsible for the resources"
   type        = string
 }
 
-variable "folder_id" {
-  description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
+variable "helpers_repository" {
+  description = "The repository name (should be in the format 'owner/repo' containing only lowercase alphanumeric characters or hyphens)"
+  type        = string
+}
+
+variable "helpers_team" {
+  description = "The team name (should contain only lowercase alphanumeric characters and hyphens)"
   type        = string
 }
 
@@ -85,11 +95,6 @@ variable "random_project_id" {
   default     = true
 }
 
-variable "repository" {
-  description = "The repository name (should be in the format 'owner/repo') containing only lowercase alphanumeric characters or hyphens"
-  type        = string
-}
-
 variable "security_notification_email" {
   description = "The email address to send security notifications to"
   type        = string
@@ -100,9 +105,4 @@ variable "services" {
   description = "A list of services to enable in the project"
   type        = list(string)
   default     = []
-}
-
-variable "team" {
-  description = "The team name (should contain only lowercase alphanumeric characters and hyphens)"
-  type        = string
 }

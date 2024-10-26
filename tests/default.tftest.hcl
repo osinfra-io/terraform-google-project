@@ -27,9 +27,9 @@ run "logging" {
 }
 
 variables {
-  cost_center         = "mock-cost-center"
-  data_classification = "mock-data-classification"
-  email               = "mock-team@osinfra.io"
-  repository          = "mock-owner/mock-repository"
-  team                = "mock-team"
+  helpers_cost_center         = "mock-cost-center"
+  helpers_data_classification = "mock-data-classification"
+  helpers_email               = "mock-team@osinfra.io"
+  helpers_repository          = "mock-owner/mock-repository"
+  helpers_team                = "mock-team"
 }
