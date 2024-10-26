@@ -2,7 +2,7 @@
 # https://www.terraform.io/language/values/outputs
 
 output "cis_logging_metrics_alert_policy_names" {
-  description = "The CIS logging metrics alert policy names, we need these to test the resources with inspec"
+  description = "The CIS logging metrics alert policy names"
   value = [
     for k, v in local.cis_logging_metrics :
     {

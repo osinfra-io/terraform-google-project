@@ -11,8 +11,16 @@ module "test" {
 
   cis_2_2_logging_bucket_locked = false
   description                   = "mock"
-  environment                   = var.environment
   folder_id                     = "0000000000000"
-  labels                        = local.labels
-  prefix                        = "mock"
+  helpers_cost_center           = var.helpers_cost_center
+  helpers_data_classification   = var.helpers_data_classification
+  helpers_email                 = var.helpers_email
+  helpers_repository            = var.helpers_repository
+  helpers_team                  = var.helpers_team
+
+  labels = {
+    mock-key = "mock-value"
+  }
+
+  prefix = "mock"
 }
