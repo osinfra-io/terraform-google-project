@@ -1,4 +1,4 @@
-# Terraform Core Module (osinfra.io)
+# Terraform Core Helpers Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-core-helpers
 
 module "helpers" {
