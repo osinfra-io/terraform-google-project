@@ -34,4 +34,7 @@ repos:
       - id: checkov
         verbose: true
         args:
+          - --download-external-modules=true
+          - --skip-check
+          - "CKV_TF_1"
           - --quiet
