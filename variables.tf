@@ -36,37 +36,14 @@ variable "description" {
   type        = string
 }
 
+variable "environment" {
+  description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
+  type        = string
+  default     = "sb"
+}
+
 variable "folder_id" {
-  description = "The numeric ID of the folder this project should be created under"
-  type        = string
-  validation {
-    condition     = can(regex("^[0-9]+$", var.folder_id))
-    error_message = "The folder_id value must be numeric."
-  }
-}
-
-variable "helpers_cost_center" {
-  description = "The cost center the resources will be billed to, must start with 'x' followed by three or four digits"
-  type        = string
-}
-
-variable "helpers_data_classification" {
-  description = "The data classification of the resources can be public, internal, or confidential"
-  type        = string
-}
-
-variable "helpers_email" {
-  description = "The email address of the team responsible for the resources"
-  type        = string
-}
-
-variable "helpers_repository" {
-  description = "The repository name (should be in the format 'owner/repo' containing only lowercase alphanumeric characters or hyphens)"
-  type        = string
-}
-
-variable "helpers_team" {
-  description = "The team name (should contain only lowercase alphanumeric characters and hyphens)"
+  description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
 }
 
@@ -89,13 +66,9 @@ variable "monthly_budget_amount" {
 }
 
 variable "prefix" {
-  description = <<-EOT
-    The team prefix. Examples:
-    - ct (Customer Trust)
-    - plt (Platform)
-    - sec (Security)
-    EOT
+  description = "The team prefix for example: `ops` (Operations), `sec` (Security)"
   type        = string
+  default     = "test"
 }
 
 variable "random_project_id" {
