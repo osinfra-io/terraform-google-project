@@ -84,7 +84,7 @@ terraform test
 
 | Name | Version |
 |------|---------|
-| google | 6.5.0 |
+| google | 6.9.0 |
 | random | 3.6.3 |
 
 ### Resources
