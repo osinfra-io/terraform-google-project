@@ -27,5 +27,5 @@ run "logging" {
 }
 
 variables {
-  environment = "mock"
+  environment = "sandbox"
 }
