@@ -84,7 +84,7 @@ terraform test
 
 | Name | Version |
 |------|---------|
-| google | 6.9.0 |
+| google | 6.8.0 |
 | random | 3.6.3 |
 
 ### Resources
@@ -118,7 +118,7 @@ terraform test
 | cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink project ID | `string` | `""` | no |
 | deletion\_policy | The deletion policy for the project | `string` | `"PREVENT"` | no |
 | description | A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project) | `string` | n/a | yes |
-| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| environment | The environment for example: `sandbox`, `non-production`, `production` | `string` | n/a | yes |
 | folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
 | key\_ring\_location | The location of the key ring to create | `string` | `"us"` | no |
 | labels | A map of key/value pairs to assign to the resources being created | `map(string)` | `{}` | no |

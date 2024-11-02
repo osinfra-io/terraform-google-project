@@ -37,9 +37,13 @@ variable "description" {
 }
 
 variable "environment" {
-  description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
+  description = "The environment for example: `sandbox`, `non-production`, `production`"
   type        = string
-  default     = "sb"
+
+  validation {
+    condition     = contains(["sandbox", "non-production", "production"], var.environment)
+    error_message = "Environment must be one of: sandbox, non-production, production."
+  }
 }
 
 variable "folder_id" {
