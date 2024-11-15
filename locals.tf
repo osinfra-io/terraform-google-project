@@ -2,7 +2,7 @@
 # https://www.terraform.io/language/values/locals
 
 locals {
-  base_project_id = "${var.prefix}-${var.description}-${local.env}"
+  base_project_id = "${var.prefix}-${var.description}-${module.helpers.env}"
 
   # This map is used to create the GCP-CIS v1.3.0 logging metrics and alarms (2.4 - 2.11). It is recommended that metric filters and alarms be established for
   # the following resources.
@@ -76,14 +76,6 @@ locals {
   cis_2_2_logging_sink_project_id     = var.cis_2_2_logging_sink_project_id == "" ? google_project.this.project_id : var.cis_2_2_logging_sink_project_id
   cis_2_2_logging_sink_storage_bucket = var.cis_2_2_logging_sink_project_id == "" ? "logging.googleapis.com/${google_logging_project_bucket_config.cis_2_2_logging_sink[0].name}" : "logging.googleapis.com/projects/${var.cis_2_2_logging_sink_project_id}/locations/${var.key_ring_location}/buckets/cis-2-2-logging-sink"
 
-  env_map = {
-    "sandbox"        = "sb"
-    "non-production" = "nonprod"
-    "production"     = "prod"
-  }
-
-  env = lookup(local.env_map, var.environment, "none")
-
   monitoring_notification_channels = {
     "budget" = {
       description   = "Budget notification channel created by the terraform-google-project child module"
@@ -105,7 +97,7 @@ locals {
     var.prefix,
     var.description,
     random_id.this[0].hex,
-    local.env,
+    module.helpers.env,
   ) : local.base_project_id
 
   # Concat Function
