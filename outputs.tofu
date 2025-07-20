@@ -1,5 +1,5 @@
 # Output Values
-# https://www.terraform.io/language/values/outputs
+# https://opentofu.org/docs/language/values/outputs
 
 output "cis_logging_metrics_alert_policy_names" {
   description = "The CIS logging metrics alert policy names, we need these to test the resources with inspec"

@@ -1,4 +1,4 @@
-name: Terraform Tests
+name: OpenTofu Tests
 
 on:
   workflow_dispatch:

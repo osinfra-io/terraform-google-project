@@ -1,4 +1,4 @@
-# Terraform Docs
+# Terraform Docs (works with OpenTofu .tofu files)
 # https://github.com/terraform-docs/terraform-docs
 
 formatter: markdown
