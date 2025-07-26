@@ -1,5 +1,5 @@
 # Input Variables
-# https://www.terraform.io/language/values/variables
+# https://opentofu.org/docs/language/values/variables
 
 variable "billing_account" {
   description = "The alphanumeric ID of the billing account this project belongs to"

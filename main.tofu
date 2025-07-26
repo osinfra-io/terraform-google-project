@@ -1,5 +1,5 @@
 # Logging Project CMEK Settings Data Source
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/logging_project_cmek_settings
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/datasources/logging_project_cmek_settings
 
 data "google_logging_project_cmek_settings" "this" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
@@ -12,7 +12,7 @@ data "google_logging_project_cmek_settings" "this" {
 }
 
 # Billing Budget Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/billing_budget
 
 resource "google_billing_budget" "project" {
   all_updates_rule {
@@ -53,7 +53,7 @@ resource "google_billing_budget" "project" {
 }
 
 # Project Metadata Item Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata_item
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/compute_project_metadata_item
 
 # CIS 4.4 Ensure OS login is enabled for a project.
 # Enabling OS login binds SSH certificates to IAM users and facilitates effective SSH certificate management.
@@ -69,7 +69,7 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
 }
 
 # KMS Crypto Key Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/kms_crypto_key
 
 resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
 
@@ -85,9 +85,9 @@ resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
 
   # We can't use the lifecycle block to prevent destroy on this resource for testing purposes.
 
-  # CryptoKeys cannot be deleted from Google Cloud Platform. Destroying a Terraform-managed CryptoKey will
+  # CryptoKeys cannot be deleted from Google Cloud Platform. Destroying a OpenTofu-managed CryptoKey will
   # remove it from state and delete all CryptoKeyVersions, rendering the key unusable, but will not delete
-  # the resource from the project. When Terraform destroys these keys, any data previously encrypted with
+  # the resource from the project. When OpenTofu destroys these keys, any data previously encrypted with
   # these keys will be irrecoverable. For this reason, it is strongly recommended that you add lifecycle
   # hooks to the resource to prevent accidental destruction.
 
@@ -97,7 +97,7 @@ resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
 }
 
 # KMS Key Ring Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/kms_key_ring
 
 resource "google_kms_key_ring" "this" {
   location = var.key_ring_location
@@ -110,7 +110,7 @@ resource "google_kms_key_ring" "this" {
 }
 
 # KMS Crypto Key IAM Member Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key_iam_member
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/kms_crypto_key_iam_member
 
 resource "google_kms_crypto_key_iam_member" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
@@ -121,7 +121,7 @@ resource "google_kms_crypto_key_iam_member" "cis_2_2_logging_sink" {
 }
 
 # Logging Metric Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_metric
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/logging_metric
 
 resource "google_logging_metric" "cis_logging_metrics" {
   for_each = local.cis_logging_metrics
@@ -141,7 +141,7 @@ resource "google_logging_metric" "cis_logging_metrics" {
 # It is recommended to create a sink that will export copies of all the log entries.
 
 # Project Logging Sink Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/logging_project_sink
 
 resource "google_logging_project_sink" "cis_2_2_logging_sink" {
   destination            = local.cis_2_2_logging_sink_storage_bucket
@@ -155,7 +155,7 @@ resource "google_logging_project_sink" "cis_2_2_logging_sink" {
 }
 
 # Project Logging Bucket Config Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_bucket_config
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/logging_project_bucket_config
 
 resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
   count = var.cis_2_2_logging_sink_project_id != "" ? 0 : 1
@@ -173,7 +173,7 @@ resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
 }
 
 # Monitoring Alert Policy Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/monitoring_alert_policy
 
 resource "google_monitoring_alert_policy" "cis_logging_metrics" {
   for_each = local.cis_logging_metrics
@@ -218,7 +218,7 @@ resource "google_monitoring_alert_policy" "cis_logging_metrics" {
 }
 
 # Monitoring Notification Channel Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/monitoring_notification_channel
 
 resource "google_monitoring_notification_channel" "this" {
   for_each = local.monitoring_notification_channels
@@ -237,7 +237,7 @@ resource "google_monitoring_notification_channel" "this" {
 }
 
 # Project Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_project
 
 resource "google_project" "this" {
 
@@ -254,7 +254,7 @@ resource "google_project" "this" {
 }
 
 # IAM Audit Config Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_audit_config
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_audit_config
 
 # CIS 2.1 Ensure that cloud audit logging is configured properly across all services and all users from a project.
 # It is recommended that Cloud Audit Logging is configured to track all admin activities and read, write access to user data.
@@ -279,7 +279,7 @@ resource "google_project_iam_audit_config" "cis_2_1" {
 }
 
 # Project IAM Member Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_project_iam
 
 resource "google_project_iam_member" "cis_2_2" {
 
@@ -293,7 +293,7 @@ resource "google_project_iam_member" "cis_2_2" {
 }
 
 # Project Service Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_project_service
 
 resource "google_project_service" "this" {
   for_each = local.services
@@ -304,7 +304,7 @@ resource "google_project_service" "this" {
 }
 
 # Random ID Resource
-# https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
+# https://search.opentofu.org/provider/hashicorp/random/latest/docs/resources/id
 
 resource "random_id" "this" {
   count = var.random_project_id ? 1 : 0
