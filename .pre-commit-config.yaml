@@ -16,8 +16,10 @@ repos:
       - id: tofu-fmt
         verbose: true
 
-      # To speed up local validation add the following to your ~/.zshrc:
-      # export TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
+      # To speed up local validation:
+      # mkdir -p $HOME/.opentofu.d/plugin-cache
+      # Add the following to your ~/.zshrc:
+      # export TF_PLUGIN_CACHE_DIR=$HOME/.opentofu.d/plugin-cache
 
       - id: tofu-validate
         verbose: true

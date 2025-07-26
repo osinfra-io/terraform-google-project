@@ -19,5 +19,5 @@ jobs:
     if: github.actor != 'dependabot[bot]'
     with:
       service_account: plt-lz-testing-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
-      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_version: ${{ vars.OPENTOFU_VERSION }}
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
