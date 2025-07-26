@@ -1,12 +1,12 @@
 # <img align="left" width="45" height="45" src="https://user-images.githubusercontent.com/1610100/195462632-f70a64d6-7811-4da3-aa82-c65cbbb74754.png"> Google Cloud Platform - Project OpenTofu Module
 
-**[GitHub Actions](https://github.com/osinfra-io/terraform-google-project/actions):**
+**[GitHub Actions](https://github.com/osinfra-io/opentofu-google-project/actions):**
 
-[![OpenTofu Tests](https://github.com/osinfra-io/terraform-google-project/actions/workflows/test.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/test.yml) [![Dependabot](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/terraform-google-project/actions/workflows/dependabot.yml)
+[![OpenTofu Tests](https://github.com/osinfra-io/opentofu-google-project/actions/workflows/test.yml/badge.svg)](https://github.com/osinfra-io/opentofu-google-project/actions/workflows/test.yml) [![Dependabot](https://github.com/osinfra-io/opentofu-google-project/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/opentofu-google-project/actions/workflows/dependabot.yml)
 
 **[Infracost](https://www.infracost.io):**
 
-[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8?tab=settings)
+[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8/branch/43abfb4e-f8de-4d81-b98d-de0438843e47)](https://dashboard.infracost.io/org/osinfra-io/repos/f8112db9-d028-45e6-86f5-c35c48a7c0b8?tab=branches)
 
 💵 Monthly estimates based on Infracost baseline costs.
 
@@ -15,7 +15,7 @@
 OpenTofu **example** module for a Google Cloud Platform project.
 
 > [!NOTE]
-> We do not recommend consuming this module like you might a [public module](https://search.opentofu.org/browse/modules). It is a baseline, something you can fork, potentially maintain, and modify to fit your organization's needs. Using public modules vs. writing your own has various [drivers and trade-offs](https://docs.osinfra.io/fundamentals/architecture-decision-records/adr-0003) that your organization should evaluate.
+> We do not recommend consuming this module like you might a [public module](https://search.opentofu.org). It is a baseline, something you can fork, potentially maintain, and modify to fit your organization's needs. Using public modules vs. writing your own has various [drivers and trade-offs](https://docs.osinfra.io/fundamentals/architecture-decision-records/adr-0003) that your organization should evaluate.
 
 ## 🔩 Usage
 
