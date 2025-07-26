@@ -9,3 +9,15 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-symlinks
+
+  - repo: https://github.com/osinfra-io/pre-commit-hooks
+    rev: v0.1.1
+    hooks:
+      - id: tofu-fmt
+        verbose: true
+
+      # To speed up local validation add the following to your ~/.zshrc:
+      # export TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
+
+      - id: tofu-validate
+        verbose: true
